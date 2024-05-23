@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-use App\Model\Database;
+use App\Core\Database;
 
 class Model {
     protected $db;
