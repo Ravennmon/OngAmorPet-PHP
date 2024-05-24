@@ -14,12 +14,12 @@
 
 <body>
     <header>
-        <a href="/">
+        <a href="home">
             <img src="resources/img/logo 3.svg" width="200" height="92">
         </a>
 
         <nav>
-            <a href="/">Inicio</a>
+            <a href="home">Inicio</a>
         </nav>
     </header>
 
