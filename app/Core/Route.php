@@ -13,6 +13,14 @@ class Route {
         self::$routes['POST'][$uri] = $action;
     }
 
+    public static function put($uri, $action) {
+        self::$routes['PUT'][$uri] = $action;
+    }
+
+    public static function delete($uri, $action) {
+        self::$routes['DELETE'][$uri] = $action;
+    }
+
     public static function getRoutes() {
         return self::$routes;
     }

@@ -11,3 +11,5 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 
 $router->dispatch($uri, $method);
+
+//echo 'Hello World!';
