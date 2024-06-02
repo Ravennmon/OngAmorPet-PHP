@@ -2,20 +2,21 @@
 <?php ob_start(); ?>
 
 <section id="login" class="init login-form fade fade-right">
-    <h1>Login</h1>
-    <form action="login_handler.php" method="POST">
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form action="/login" method="post">
+                <input type="text" name="username" placeholder="Email">
+                <input type="password" name="password" placeholder="Senha">
+                <label>
+                    <input type="checkbox" name="remember">
+                    Lembrar-me
+                </label>
+                <input type="submit" value="Login">
+            </form>
+
         </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div>
-            <button type="submit">Login</button>
-        </div>
-    </form>
+    </div>
 </section>
 
 <?php $content = ob_get_clean(); ?>

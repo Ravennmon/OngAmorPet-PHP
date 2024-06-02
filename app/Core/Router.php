@@ -18,16 +18,25 @@ class Router
             return;
         }
 
-        if (isset($this->routes[$method][$uri])) {
-            $action = $this->routes[$method][$uri];
-            if (is_array($action) && class_exists($action[0]) && method_exists($action[0], $action[1])) {
-                call_user_func_array([new $action[0], $action[1]], []);
-            } else {
-                $this->notFound();
+        foreach ($this->routes[$method] as $route => $action) {
+            $pattern = str_replace(['{', '}'], ['(?<', '>[^/]+)'], $route);
+            $pattern = str_replace('/', '\/', $pattern);
+            $pattern = '/^' . $pattern . '$/';
+
+            if (preg_match($pattern, $uri, $matches)) {
+                $parameters = array_slice($matches, 1);
+                
+                if (is_array($action) && class_exists($action[0]) && method_exists($action[0], $action[1])) {
+                    call_user_func_array([new $action[0], $action[1]], array_values($parameters));
+                    return;
+                } else {
+                    $this->notFound();
+                    return;
+                }
             }
-        } else {
-            $this->notFound();
         }
+
+        $this->notFound();
     }
 
     protected function serveStaticFile($uri)

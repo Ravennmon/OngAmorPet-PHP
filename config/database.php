@@ -15,7 +15,7 @@ return [
             'driver' => 'pgsql',
             'host' => 'localhost',
             'port' => '5432',
-            'dbname' => 'ecommerce',
+            'dbname' => 'amor_pet',
             'username' => 'postgres',
             'password' => 'root',
         ]

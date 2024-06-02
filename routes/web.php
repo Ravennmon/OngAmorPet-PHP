@@ -2,12 +2,21 @@
 
 use App\Controller\LandingPageController;
 use App\Controller\LoginController;
+use App\Controller\UserController;
 use App\Core\Route;
 
 Route::get('/', [LandingPageController::class, 'index']);
 Route::get('/home', [LandingPageController::class, 'index']);
 Route::get('/about', [LandingPageController::class, 'about']);
 Route::get('/faq', [LandingPageController::class, 'faq']);
-Route::get('/login', [LoginController::class, 'login']);
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/test/kkkk', [LoginController::class, 'login']);
+Route::post('/test/kkkk', [LoginController::class, 'login']);
+Route::post('/users', [UserController::class, 'store']);
+Route::get('/users/{id}', [UserController::class, 'show']);
+Route::put('/users/{id}', [UserController::class, 'update']);
+Route::delete('/users/{id}', [UserController::class, 'destroy']);
+
+
 
 return Route::getRoutes();

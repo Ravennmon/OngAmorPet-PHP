@@ -29,21 +29,8 @@
     </main>
 
     <footer>
-        <div>
-            <img src="resources/img/logo3.svg" width="200" height="92">
-        </div>
-
-        <div>
-            <strong>Fale-conosco</strong>
-            <p>whatsapp: (41) 9 9688-8888</p>
-            <p>E-mail: <a href="mailto:amorpet@adotaremar.com.br">amorpet@adotaremar.com.br</a></p>
-            <p>Instagram: <a href="http://instagram.com/crazycatgang" target="_blank"> CrazyCatGang</a></p>
-        </div>
-    </footer>
-
-    <div id="dev">
         Desenvolvido por: <a class="dev" target="_blank"> Francyne Leocadio, Renan Dos Santos, Pedro Dawybida e Henrique Onorato. </a>
-    </div>
+    </footer>
 
     <script src="resources/js/script.js"></script>
 </body>
