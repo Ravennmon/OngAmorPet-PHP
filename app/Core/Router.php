@@ -13,7 +13,9 @@ class Router
 
     public function dispatch($uri, $method)
     {
-        if(str_starts_with($uri, '/resources')){
+        $uri = $this->removeRootFolderUri($uri);
+
+        if (str_starts_with($uri, '/resources')) {
             $this->serveStaticFile($uri);
             return;
         }
@@ -25,7 +27,7 @@ class Router
 
             if (preg_match($pattern, $uri, $matches)) {
                 $parameters = array_slice($matches, 1);
-                
+
                 if (is_array($action) && class_exists($action[0]) && method_exists($action[0], $action[1])) {
                     call_user_func_array([new $action[0], $action[1]], array_values($parameters));
                     return;
@@ -41,7 +43,7 @@ class Router
 
     protected function serveStaticFile($uri)
     {
-        $filePath = __DIR__ .'/../..' . $uri;
+        $filePath = __DIR__ . '/../..' . $uri;
         if (file_exists($filePath) && is_file($filePath)) {
             $this->sendFile($filePath);
         } else {
@@ -78,5 +80,11 @@ class Router
     {
         header("HTTP/1.0 404 Not Found");
         echo '404 Not Found';
+    }
+
+    // TODO
+    protected function removeRootFolderUri($uri)
+    {
+        return str_replace('/007', '', $uri);
     }
 }

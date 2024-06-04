@@ -27,7 +27,8 @@
             somos especializados no resgate e reabilitação dos mesmos, para a adoção, correta e assistida
             inicialmente.
         </p>
-        <a class="cachorrinhos" href="https://www.instagram.com/institutoficacomigo_" target="_blank">Conheça alguns cachorrinhos</a>
+        <a class="cachorrinhos" href="https://www.instagram.com/institutoficacomigo_" target="_blank">Conheça alguns
+            cachorrinhos</a>
     </div>
 </section>
 

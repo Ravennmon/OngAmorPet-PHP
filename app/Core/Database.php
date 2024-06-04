@@ -12,7 +12,7 @@ class Database
 
     private function __construct()
     {
-        $config = $this->getConfig('pgsql');
+        $config = $this->getConfig('mysql');
         $dsn = "{$config['driver']}:host={$config['host']};port={$config['port']};dbname={$config['dbname']}";
         $options = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

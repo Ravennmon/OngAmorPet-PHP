@@ -21,13 +21,6 @@ class LoginValidation
         $user = $user->where(['email' => $request->email])->first();
 
         if (password_verify($password, $user->password)) {
-            $_SESSION['user'] = $user;
-
-            if ($user->remember_me) {
-                setcookie('user_id', $user->id, time() + (86400 * 30), "/");
-                setcookie('name', $user->name, time() + (86400 * 30), "/");
-            }
-
             return true;
         }
 

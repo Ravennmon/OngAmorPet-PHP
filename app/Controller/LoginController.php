@@ -15,10 +15,8 @@ class LoginController extends Controller
         View::render('login', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
     }
 
-    public function login()
+    public function store()
     {
-        print_r($this->request->all());
-        return;
         $validation = LoginValidation::validate($this->request);
 
         $user = new User();
@@ -26,8 +24,15 @@ class LoginController extends Controller
 
         if (!$validation) {
             return View::render('login', ['title' => 'Login', 'content' => $validation]);
-        } 
-            
+        }
+
+        $_SESSION['user'] = $user;
+
+        if ($user->remember_me) {
+            setcookie('user_id', $user->id, time() + (86400 * 30), "/");
+            setcookie('name', $user->name, time() + (86400 * 30), "/");
+        }
+
         header('Location: /');
     }
 }
