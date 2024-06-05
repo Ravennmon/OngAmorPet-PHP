@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Core\View;
 use App\Model\User;
 use App\Controller\Controller;
-use App\Core\Request;
 use App\Validations\LoginValidation;
 
 class LoginController extends Controller
@@ -26,13 +25,16 @@ class LoginController extends Controller
             return View::render('login', ['title' => 'Login', 'content' => $validation]);
         }
 
-        $_SESSION['user'] = $user;
+        $_SESSION['user'] = [
+            'name' => $user->name,
+            'email' => $user->email,
+        ];
 
-        if ($user->remember_me) {
+        if ($this->request->remember) {
             setcookie('user_id', $user->id, time() + (86400 * 30), "/");
             setcookie('name', $user->name, time() + (86400 * 30), "/");
         }
 
-        header('Location: /');
+        header('Location: dashboard');
     }
 }

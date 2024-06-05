@@ -5,32 +5,38 @@ namespace App\Model;
 use App\Core\Database;
 use PDO;
 
-class Model {
+class Model
+{
     protected $db;
     protected $table;
     protected $fillable = [];
     protected $conditions = [];
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->db = Database::getInstance()->getConnection();
     }
 
-    public static function where($conditions) {
+    public static function where($conditions)
+    {
         $instance = new static();
         $instance->conditions = $conditions;
         return $instance;
     }
 
-    public function first() {
+    public function first()
+    {
         $results = $this->getQueryResults(true);
         return $results ? $results[0] : null;
     }
 
-    public function get() {
+    public function get()
+    {
         return $this->getQueryResults();
     }
 
-    private function getQueryResults($single = false) {
+    private function getQueryResults($single = false)
+    {
         $where = '';
         $params = [];
 
@@ -49,14 +55,16 @@ class Model {
         return $single ? [$stmt->fetch()] : $stmt->fetchAll();
     }
 
-    public function find($id) {
+    public function find($id)
+    {
         $stmt = $this->db->prepare('SELECT * FROM ' . $this->table . ' WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
         return $stmt->fetch();
     }
 
-    public function create($data) {
+    public function create($data)
+    {
         $columns = '';
         $placeholders = '';
 
@@ -64,7 +72,7 @@ class Model {
             if (!isset($data[$key])) {
                 continue;
             }
-            
+
             $columns .= $key . ', ';
             $placeholders .= ':' . $key . ', ';
         }
@@ -73,10 +81,12 @@ class Model {
         $placeholders = rtrim($placeholders, ', ');
         $sql = 'INSERT INTO ' . $this->table . ' (' . $columns . ') VALUES (' . $placeholders . ')';
         $stmt = $this->db->prepare($sql);
+
         $stmt->execute($data);
     }
 
-    public function update($data, $id) {
+    public function update($data, $id)
+    {
         $columns = '';
 
         foreach ($this->fillable as $key) {
@@ -94,7 +104,8 @@ class Model {
         $stmt->execute($data);
     }
 
-    public function delete($id) {
+    public function delete($id)
+    {
         $stmt = $this->db->prepare('DELETE FROM ' . $this->table . ' WHERE id = :id');
         $stmt->execute(['id' => $id]);
     }

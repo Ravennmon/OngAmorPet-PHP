@@ -2,6 +2,8 @@
 
 use App\Core\Router;
 
+session_start();
+
 $routes = require __DIR__ . '/../routes/web.php';
 
 $router = new Router($routes);

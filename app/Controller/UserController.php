@@ -9,6 +9,11 @@ use App\Core\Response;
 
 class UserController extends Controller
 {
+    public function index()
+    {
+        View::render('signup', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
+    }
+
     public function store()
     {
         $user = new User();
@@ -17,7 +22,7 @@ class UserController extends Controller
             'name' => $this->request->name,
             'email' => $this->request->email,
             'password' => password_hash($this->request->password, PASSWORD_BCRYPT),
-            'remember_me' => $this->request->remember_me,
+            'remember_me' => 0,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);
