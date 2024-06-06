@@ -6,48 +6,46 @@ use App\Core\View;
 use App\Model\User;
 use App\Controller\Controller;
 use App\Core\Response;
+use App\Dao\BaseDao;
+use App\Dao\UserDao;
 
 class UserController extends Controller
 {
     public function index()
     {
-        $user = new User();
-
-        $users = $user->get();
-
         View::render('signup', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
     }
 
     public function store()
     {
-        $user = new User();
+        $user = new User(
+            $this->request->name,
+            $this->request->email,
+            $this->request->password,
+            false
+        );
 
-        $user->create([
-            'name' => $this->request->name,
-            'email' => $this->request->email,
-            'password' => password_hash($this->request->password, PASSWORD_BCRYPT),
-            'remember_me' => 0,
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s')
-        ]);
+        $baseDao = new UserDao();
 
-        Response::success('User created successfully');
+        $baseDao->store($user);
+
+        View::render('dashboard', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
     }
 
     public function show($id)
     {
-        $user = new User();
+        $userDao = new UserDao();
 
-        $user = $user->find($id);
+        $user = $userDao->find($id);
 
         Response::success($user);
     }
 
     public function update($id)
     {
-        $user = new User();
+        $userDao = new UserDao();
 
-        $sql = $user->update([
+        $sql = $userDao->update([
             'name' => $this->request->name,
             'email' => $this->request->email,
             'updated_at' => date('Y-m-d H:i:s')
@@ -58,9 +56,9 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        $user = new User();
+        $userDao = new UserDao();
 
-        $user->delete($id);
+        $userDao->delete($id);
 
         return Response::success('User deleted successfully');
     }

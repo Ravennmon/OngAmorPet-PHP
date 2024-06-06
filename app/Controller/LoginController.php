@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Core\View;
 use App\Model\User;
 use App\Controller\Controller;
+use App\Dao\UserDao;
 use App\Validations\LoginValidation;
 
 class LoginController extends Controller
@@ -18,8 +19,8 @@ class LoginController extends Controller
     {
         $validation = LoginValidation::validate($this->request);
 
-        $user = new User();
-        $user = $user->where(['email' => $this->request->email])->first();
+        $userDao = new UserDao();
+        $user = $userDao->where(['email' => $this->request->email])->first();
 
         if (!$validation) {
             return View::render('login', ['title' => 'Login', 'content' => $validation]);
