@@ -11,6 +11,10 @@ class UserController extends Controller
 {
     public function index()
     {
+        $user = new User();
+
+        $users = $user->get();
+
         View::render('signup', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
     }
 

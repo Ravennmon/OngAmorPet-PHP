@@ -9,6 +9,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        print_r($_SESSION);
+        View::render('dashboard', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
     }
 }
