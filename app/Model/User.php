@@ -2,9 +2,7 @@
 
 namespace App\Model;
 
-use App\Model\Model;
-
-class User extends Model
+class User
 {
     private int $id;
     private string $name;
