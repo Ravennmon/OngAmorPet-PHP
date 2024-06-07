@@ -13,6 +13,7 @@
                     Lembrar-me
                 </label>
                 <input type="submit" value="Login">
+                <a href="register">Cadastrar-se</a>
             </form>
 
         </div>
