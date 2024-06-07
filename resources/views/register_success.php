@@ -1,8 +1,7 @@
 <?php $title = 'Desenvolvedores'; ?>
 <?php ob_start(); ?>
 
-<section id="cadastrosucess" class="init login-form fade fade-right">
-    <section id="ajuda" class="fade fade-left">
+<section id="cadastrosucess" class="init login-form content-center">
     <img src="resources/img/cat.svg" alt="" width="" height="">
     <div>
         <h2>Usuario cadastrado com sucesso</h2>
@@ -21,9 +20,6 @@
     </div>
 </section>
 
-
-
-</section>
 
 <?php $content = ob_get_clean(); ?>
 <?php include 'layout/layout.php'; ?>

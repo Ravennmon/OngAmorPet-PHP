@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const initFades = document.querySelectorAll('.init')
     const duvidasEl = document.querySelectorAll('.duvida')
 
-    duvidasEl.forEach(duvida => duvida.addEventListener('click', () => duvida.classList.toggle('ativa')))
+    duvidasEl.forEach(duvida => duvida.addEventListener('click', () => {
+        duvida.classList.toggle('ativa')
+    }))
 
     window.addEventListener("scroll", show)
 

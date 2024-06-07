@@ -4,7 +4,7 @@ namespace App\Validations;
 
 
 use App\Core\Request;
-use App\Model\User;
+use App\Dao\UserDao;
 
 class LoginValidation
 {
@@ -17,8 +17,8 @@ class LoginValidation
             return false;
         }
 
-        $user = new User();
-        $user = $user->where(['email' => $request->email])->first();
+        $userDao = new UserDao();
+        $user = $userDao->where(['email' => $request->email])->first();
 
         if (password_verify($password, $user->password)) {
             return true;

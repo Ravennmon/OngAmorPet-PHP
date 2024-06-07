@@ -2,8 +2,10 @@
 <?php ob_start(); ?>
 
 <section id="duvidas" class="fade fade-right active">
-    <img src="resources/img/dog2.svg" alt="" loading="lazy">
-    <div>
+    <div class="h-100vh">
+        <img src="resources/img/dog2.svg" alt="" loading="lazy">
+    </div>
+    <div class="h-100vh">
         <h2>Duvidas mais frequêntes, antes de entrar em contato.</h2>
         <p>
             Muitas pessoas possuem duvidas, de como funciona uma adoção, atráves de uma ONG.
@@ -35,6 +37,7 @@
                 pequeninos, até ganhem um lar definitivo.
             </p>
         </div>
+    </div>
 </section>
 
 <?php $content = ob_get_clean(); ?>

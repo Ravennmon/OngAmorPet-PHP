@@ -12,7 +12,7 @@
 </head>
 <body>
 <header>
-        <a href="index.html">
+        <a href="home">
             <img src="resources/img/logo3.svg" width="200" height="92">
         </a>
 

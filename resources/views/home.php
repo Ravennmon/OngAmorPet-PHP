@@ -46,7 +46,7 @@
     </div>
 </section>
 
-<section id="ajuda" class="fade fade-left">
+<section class="fade fade-left content-center">
     <img src="resources/img/cat.svg" alt="" width="" height="" loading="lazy">
     <div>
         <h2>Ajuda, ou quer adotar? Entre em contato.</h2>
