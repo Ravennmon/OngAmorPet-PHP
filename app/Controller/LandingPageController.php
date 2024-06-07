@@ -24,4 +24,5 @@ class LandingPageController
     {
         View::render('faq', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
     }
+    
 }

@@ -31,7 +31,9 @@ class UserController extends Controller
             'updated_at' => date('Y-m-d H:i:s')
         ]);
 
-        Response::success('User created successfully');
+        // Response::success('User created successfully');
+        View::render('cadastrosucess', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
+
     }
 
     public function show($id)
