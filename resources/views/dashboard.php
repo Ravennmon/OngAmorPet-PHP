@@ -1,8 +1,26 @@
 <?php $title = 'Desenvolvedores'; ?>
 <?php ob_start(); ?>
 
-<section>
-    <img src="resources/img/menina_e_gato.svg" alt="Gatos" width="" height="" loading="lazy">
+<section id="duvidas" class="fade fade-right active">
+    <img src="resources/img/dog2.svg" alt="">
+    <div>
+        <h2>Bem vindo ao AmorPet</h2>
+        <p>
+            Este espaço é reservado para administração da ong.
+            Aqui voçê pode criar, listar, editar e deletar ong's, animais e tutores. 
+        </p>
+    </div>
+    <div>
+        <h3>O que deseja fzer ?</h3>
+    </div>
+    <div class="opcoes">
+        
+    </div>
+</section>
+
+
+
+</section>
 
     <h1>
         Usuário criado com sucesso

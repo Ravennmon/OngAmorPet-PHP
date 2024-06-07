@@ -29,7 +29,9 @@ class UserController extends Controller
 
         $baseDao->store($user);
 
-        View::render('dashboard', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
+        // Response::success('User created successfully');
+        View::render('cadastrosucess', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
+
     }
 
     public function show($id)
