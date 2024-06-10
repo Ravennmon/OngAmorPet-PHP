@@ -50,16 +50,14 @@ class BaseDao
         $stmt = $this->db->prepare($sql);
         $stmt->execute($params);
 
-        $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
-        return $single ? [$stmt->fetch()] : $stmt->fetchAll();
+        return $single ? $stmt->fetch(PDO::FETCH_ASSOC) : $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function find($id)
     {
         $stmt = $this->db->prepare('SELECT * FROM ' . $this->table . ' WHERE id = :id');
         $stmt->execute(['id' => $id]);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, get_called_class());
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function create($data)
@@ -82,6 +80,9 @@ class BaseDao
         $stmt = $this->db->prepare($sql);
 
         $stmt->execute($data);
+
+        $lastId =  $this->db->lastInsertId();
+        return $this->find($lastId);
     }
 
     public function update($data, $id)
