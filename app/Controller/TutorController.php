@@ -6,7 +6,6 @@ use App\Core\View;
 use App\Model\Tutor;
 use App\Controller\Controller;
 use App\Core\Response;
-use App\Dao\BaseDao;
 use App\Dao\TutorDao;
 
 class TutorController extends Controller

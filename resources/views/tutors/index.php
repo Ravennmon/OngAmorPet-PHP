@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h2>Users</h2>
+        <h2>Tutores</h2>
     </div>
     <div class="card-body">
         <table class="table table-striped">
