@@ -3,47 +3,48 @@
 namespace App\Controller;
 
 use App\Core\View;
-use App\Model\Tutor;
+use App\Model\Ong;
 use App\Controller\Controller;
 use App\Core\Response;
-use App\Dao\TutorDao;
-use App\Validations\TutorValidation;
+use App\Dao\OngDao;
+use App\Validations\OngValidation;
 
-class TutorController extends Controller
+class OngController extends Controller
 {
     public function index()
     {
-        $tutors = (new TutorDao())->get();
+        $ongs = (new OngDao())->get();
 
-        View::render('tutors/index', [
-            'tutors' => $tutors
+        View::render('ongs/index', [
+            'ongs' => $ongs
         ]);
     }
 
     public function create(){
-        View::render('tutors/create');
+        View::render('ongs/create');
     }
 
     public function edit($id)
     {
-        $tutor = (new TutorDao())->find($id);
+        $ong = (new OngDao())->find($id);
 
-        View::render('tutors/edit', [
-            'tutor' => $tutor
+        View::render('ongs/edit', [
+            'ong' => $ong
         ]);
     }
 
     public function store()
     {
-        $validation = TutorValidation::validate($this->request);
+        $validation = OngValidation::validate($this->request);
 
         if ($validation !== true) {
             return Response::error($validation);
         }
 
-        $tutor = new Tutor(
+        $ong = new Ong(
             $this->request->name,
             $this->request->email,
+            $this->request->cnpj,
             $this->request->phone,
             $this->request->zipcode,
             $this->request->address,
@@ -53,29 +54,30 @@ class TutorController extends Controller
             $this->request->complement,
         );
 
-        $baseDao = new TutorDao();
+        $baseDao = new OngDao();
 
-        $created = $baseDao->store($tutor);
+        $created = $baseDao->store($ong);
 
         return Response::success($created);
     }
 
     public function show($id)
     {
-        $tutorDao = new TutorDao();
+        $ongDao = new OngDao();
 
-        $tutor = $tutorDao->find($id);
+        $ong = $ongDao->find($id);
 
-        Response::success($tutor);
+        Response::success($ong);
     }
 
     public function update($id)
     {
-        $tutorDao = new TutorDao();
+        $ongDao = new OngDao();
 
-        $sql = $tutorDao->update([
+        $sql = $ongDao->update([
             'name' => $this->request->name,
             'email' => $this->request->email,
+            'cnpj' => $this->request->cnpj,
             'phone' => $this->request->phone,
             'zipcode' => $this->request->zipcode,
             'address' => $this->request->address,
@@ -91,10 +93,10 @@ class TutorController extends Controller
 
     public function destroy($id)
     {
-        $tutorDao = new TutorDao();
+        $ongDao = new OngDao();
 
-        $tutorDao->delete($id);
+        $ongDao->delete($id);
 
-        header('Location: /tutors');
+        header('Location: /ongs');
     }
 }

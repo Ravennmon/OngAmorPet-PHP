@@ -37,19 +37,16 @@
 
 <body class="vsc-initialized">
     <div class="sidebar">
-        <h2>Admin Dashboard</h2>
+        <h2>AmorPet</h2>
         <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Dashboard</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="/tutors">Tutores</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Ongs</a>
+                <a class="nav-link" href="/ongs">Ongs</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Animais</a>
+                <a class="nav-link" href="/animals">Animais</a>
             </li>
         </ul>
     </div>

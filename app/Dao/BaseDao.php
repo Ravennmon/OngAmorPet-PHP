@@ -26,7 +26,7 @@ class BaseDao
     public function first()
     {
         $results = $this->getQueryResults(true);
-        return $results ? $results[0] : null;
+        return $results ? $results[0] ?? $results : null;
     }
 
     public function get()

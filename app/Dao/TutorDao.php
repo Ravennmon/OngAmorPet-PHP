@@ -23,7 +23,7 @@ class TutorDao extends BaseDao
 
     public function store(Tutor $tutor)
     {
-        $this->create([
+        return $this->create([
             'name' => $tutor->getName(),
             'email' => $tutor->getEmail(),
             'phone' => $tutor->getPhone(),

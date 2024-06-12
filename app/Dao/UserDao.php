@@ -19,4 +19,9 @@ class UserDao extends BaseDao
             'updated_at' => $user->getUpdatedAt()
         ]);
     }
+
+    public function get()
+    {
+        return $this->get();
+    }
 }

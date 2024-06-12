@@ -2,25 +2,27 @@
 
 namespace App\Model;
 
-class Tutor
+class Ong
 {
     private int $id;
     private string $name;
     private string $email;
+    private string $cnpj;
     private string $phone;
     private string $zipcode;
     private string $state;
     private string $city;
     private string $address;
     private string $number;
-    private string $complement;
     private array $animals;
+    private string $complement;
     private string $created_at;
     private string $updated_at;
 
     public function __construct(
         string $name,
         string $email,
+        string $cnpj,
         string $phone,
         string $zipcode,
         string $address,
@@ -31,6 +33,7 @@ class Tutor
     ) {
         $this->name = $name;
         $this->email = $email;
+        $this->cnpj = $cnpj;
         $this->phone = $phone;
         $this->zipcode = $zipcode;
         $this->address = $address;
@@ -70,6 +73,16 @@ class Tutor
     public function setEmail(string $email): void
     {
         $this->email = $email;
+    }
+
+    public function getCnpj(): string
+    {
+        return $this->cnpj;
+    }
+
+    public function setCnpj(string $cnpj): void
+    {
+        $this->cnpj = $cnpj;
     }
 
     public function getPhone(): string

@@ -1,8 +1,10 @@
 <?php
 
+use App\Controller\AnimalController;
 use App\Controller\DashboardController;
 use App\Controller\LandingPageController;
 use App\Controller\LoginController;
+use App\Controller\OngController;
 use App\Controller\UserController;
 use App\Controller\RegisterController;
 use App\Controller\TutorController;
@@ -30,6 +32,22 @@ Route::get('/tutors/edit/{id}', [TutorController::class, 'edit']);
 Route::get('/tutors/{id}', [TutorController::class, 'show']);
 Route::put('/tutors/{id}', [TutorController::class, 'update']);
 Route::delete('/tutors/{id}', [TutorController::class, 'destroy']);
+
+Route::get('/ongs', [OngController::class, 'index']);
+Route::post('/ongs', [OngController::class, 'store']);
+Route::get('/ongs/create', [OngController::class, 'create']);
+Route::get('/ongs/edit/{id}', [OngController::class, 'edit']);
+Route::get('/ongs/{id}', [OngController::class, 'show']);
+Route::put('/ongs/{id}', [OngController::class, 'update']);
+Route::delete('/ongs/{id}', [OngController::class, 'destroy']);
+
+Route::get('/animals', [AnimalController::class, 'index']);
+Route::post('/animals', [AnimalController::class, 'store']);
+Route::get('/animals/create', [AnimalController::class, 'create']);
+Route::get('/animals/edit/{id}', [AnimalController::class, 'edit']);
+Route::get('/animals/{id}', [AnimalController::class, 'show']);
+Route::put('/animals/{id}', [AnimalController::class, 'update']);
+Route::delete('/animals/{id}', [AnimalController::class, 'destroy']);
 
 Route::get('/register_success', [RegisterController::class, 'index']);
 

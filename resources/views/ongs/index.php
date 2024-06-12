@@ -2,11 +2,10 @@
 <?php ob_start(); ?>
 
 
-<a href="/tutors/create" class="btn btn-info">Cadastrar</a>
-
+<a href="/ongs/create" class="btn btn-info">Cadastrar</a>
 <div class="card mt-4">
     <div class="card-header">
-        <h2>Tutores</h2>
+        <h2>Ongs</h2>
     </div>
     <div class="card-body">
         <table class="table table-striped">
@@ -21,16 +20,16 @@
                 </tr>
             </thead>
             <tbody>
-                <? foreach ($tutors as $tutor) : ?>
+                <? foreach ($ongs as $ong) : ?>
                     <tr>
-                        <td><?= $tutor['id'] ?></td>
-                        <td><?= $tutor['name'] ?></td>
-                        <td><?= $tutor['email'] ?></td>
-                        <td><?= $tutor['phone'] ?></td>
-                        <td><?= $tutor['address'] ?></td>
+                        <td><?= $ong['id'] ?></td>
+                        <td><?= $ong['name'] ?></td>
+                        <td><?= $ong['email'] ?></td>
+                        <td><?= $ong['phone'] ?></td>
+                        <td><?= $ong['address'] ?></td>
                         <td>
-                            <a href="/tutors/edit/<?= $tutor['id'] ?>" class="btn btn-warning">Editar</a>
-                            <button onclick="deleteTutor(<?= $tutor['id'] ?>)" class="btn btn-danger">Remover</button>
+                            <a href="/ongs/edit/<?= $ong['id'] ?>" class="btn btn-warning">Editar</a>
+                            <button onclick="deleteTutor(<?= $ong['id'] ?>)" class="btn btn-danger">Remover</button>
                         </td>
                     </tr>
                 <? endforeach; ?>
@@ -41,7 +40,7 @@
 
 <script>
     const deleteTutor = (id) => {
-        fetch(`/tutors/${id}`, {
+        fetch(`/ongs/${id}`, {
             method: 'DELETE'
         })
         .then(() => {
