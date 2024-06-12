@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Core\View;
 use App\Model\User;
 use App\Controller\Controller;
+use App\Core\Response;
 use App\Dao\UserDao;
 use App\Validations\LoginValidation;
 
@@ -19,16 +20,18 @@ class LoginController extends Controller
     {
         $validation = LoginValidation::validate($this->request);
 
+        if ($validation !== true) {
+            return Response::error($validation);
+        }
+
         $userDao = new UserDao();
         $user = $userDao->where(['email' => $this->request->email])->first();
 
-        if (!$validation) {
-            return View::render('login', ['title' => 'Login', 'content' => $validation]);
-        }
+
 
         $_SESSION['user'] = [
-            'name' => $user->name,
-            'email' => $user->email,
+            'name' => $user['name'],
+            'email' => $user['email'],
         ];
 
         if ($this->request->remember) {
@@ -36,6 +39,6 @@ class LoginController extends Controller
             setcookie('name', $user->name, time() + (86400 * 30), "/");
         }
 
-        header('Location: dashboard');
+        return Response::success(true);
     }
 }

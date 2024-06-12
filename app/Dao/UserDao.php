@@ -14,7 +14,7 @@ class UserDao extends BaseDao
         $this->create([
             'name' => $user->getName(),
             'email' => $user->getEmail(),
-            'password' => $user->getPassword(),
+            'password' => password_hash($user->getPassword(), PASSWORD_BCRYPT),
             'created_at' => $user->getCreatedAt(),
             'updated_at' => $user->getUpdatedAt()
         ]);

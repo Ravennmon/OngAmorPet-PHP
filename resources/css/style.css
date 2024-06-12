@@ -255,7 +255,7 @@ footer a {
     color: #333;
 }
 
-.login-box input[type="submit"] {
+.btn-login {
     width: 100%;
     padding: 10px;
     border: none;
@@ -267,7 +267,7 @@ footer a {
     margin-top: 20px;
 }
 
-.login-box input[type="submit"]:hover {
+.btn-login:hover {
     opacity: 0.9;
 }
 
@@ -287,6 +287,18 @@ footer a {
     height: 100vh;
 }
 
+.invalid-feedback {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: .875em;
+    color: #dc3545;
+    margin-bottom: .25rem;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+
+}
 @keyframes fade-left {
     0% {
         transform: translateX(-100px);
