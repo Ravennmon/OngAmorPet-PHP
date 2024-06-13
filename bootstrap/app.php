@@ -4,6 +4,15 @@ use App\Core\Router;
 
 session_start();
 
+
+if (isset($_COOKIE['remember_me']) && isset($_SESSION['remember_me_token'])) {
+    if ($_COOKIE['remember_me'] == $_SESSION['remember_me_token']) {
+        $_SESSION['username'] = 'user1'; // Ideally, look up the user by token from the database
+        echo "Welcome back, " . htmlspecialchars($_SESSION['username']);
+        exit;
+    }
+}
+
 $routes = require __DIR__ . '/../routes/web.php';
 
 $router = new Router($routes);
