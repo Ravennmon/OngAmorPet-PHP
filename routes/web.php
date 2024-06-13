@@ -50,7 +50,7 @@ Route::get('/admin/animals/{id}', [AnimalController::class, 'show']);
 Route::put('/admin/animals/{id}', [AnimalController::class, 'update']);
 Route::delete('/admin/animals/{id}', [AnimalController::class, 'destroy']);
 
-Route::get('/register_success', [RegisterController::class, 'index']);
+Route::get('/registered', [RegisterController::class, 'index']);
 
 
 

@@ -11,7 +11,7 @@ class UserDao extends BaseDao
 
     public function store(User $user)
     {
-        $this->create([
+        return $this->create([
             'name' => $user->getName(),
             'email' => $user->getEmail(),
             'password' => password_hash($user->getPassword(), PASSWORD_BCRYPT),

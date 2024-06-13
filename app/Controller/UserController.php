@@ -33,9 +33,9 @@ class UserController extends Controller
 
         $baseDao = new UserDao();
 
-        $baseDao->store($user);
+        $stored = $baseDao->store($user);
 
-        redirect('/register_success');
+        return Response::success($stored);
     }
 
     public function show($id)
