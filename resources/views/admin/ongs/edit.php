@@ -3,25 +3,12 @@
 
 <h2>Editar</h2>
 <form id="edit-form">
-    <?php
-    $fields = [
-        'name' => 'Nome',
-        'email' => 'Email',
-        'phone' => 'Telefone',
-        'zipcode' => 'CEP',
-        'address' => 'Endereço',
-        'city' => 'Cidade',
-        'state' => 'Estado',
-        'number' => 'Número',
-        'complement' => 'Complemento'
-    ];
+    <?php foreach($fields as $key => $value): ?>
+        <div class="mb-3">
+            <input type="text" class="form-control" name="<?= $key ?>"  id="<?= $key ?>" value="<?= $ong[$key] ?>">
+        </div>
+    <?php endforeach; ?>
 
-    foreach ($fields as $name => $placeholder) {
-        echo '<div class="mb-3">';
-        echo '<input type="text" class="form-control" name="' . $name . '" placeholder="' . $placeholder . '" value="' . htmlspecialchars($ong[$name]) . '">';
-        echo '</div>';
-    }
-    ?>
     <button type="button" class="btn btn-primary" onclick="saveTutor(<?php echo $ong['id'] ?>)">Salvar</button>
 </form>
 

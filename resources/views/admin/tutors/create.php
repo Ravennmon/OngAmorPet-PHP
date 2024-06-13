@@ -3,25 +3,12 @@
 
 <h2>Cadastro</h2>
 <form id="cadastro-form">
-    <?php
-    $fields = [
-        'name' => 'Nome',
-        'email' => 'Email',
-        'phone' => 'Telefone',
-        'zipcode' => 'CEP',
-        'address' => 'Endereço',
-        'city' => 'Cidade',
-        'state' => 'Estado',
-        'number' => 'Número',
-        'complement' => 'Complemento'
-    ];
-    
-    foreach ($fields as $name => $placeholder) {
-        echo '<div class="mb-3">';
-        echo '<input type="text" class="form-control" name="' . $name . '" placeholder="' . $placeholder . '">';
-        echo '</div>';
-    }
-    ?>
+    <?php foreach($fields as $key => $value): ?>
+        <div class="mb-3">
+            <input type="text" class="form-control" name="<?= $key ?>" id="<?= $key ?>" placeholder="<?= $value ?>">
+        </div>
+    <?php endforeach; ?>
+
     <button type="button" class="btn btn-primary" onclick="createTutor()">Cadastrar</button>
 </form>
 

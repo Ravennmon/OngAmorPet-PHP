@@ -20,6 +20,11 @@ class Router
             return;
         }
 
+        if (str_starts_with($uri, '/admin') && !isset($_SESSION['user'])) {
+            header('Location: /login');
+            return;
+        }
+
         foreach ($this->routes[$method] as $route => $action) {
             $pattern = str_replace(['{', '}'], ['(?<', '>[^/]+)'], $route);
             $pattern = str_replace('/', '\/', $pattern);

@@ -12,6 +12,7 @@ class Ong
     private string $zipcode;
     private string $state;
     private string $city;
+    private string $neighborhood;
     private string $address;
     private string $number;
     private array $animals;
@@ -27,6 +28,7 @@ class Ong
         string $zipcode,
         string $address,
         string $city,
+        string $neighborhood,
         string $state,
         string $number,
         string $complement
@@ -38,6 +40,7 @@ class Ong
         $this->zipcode = $zipcode;
         $this->address = $address;
         $this->city = $city;
+        $this->neighborhood = $neighborhood;
         $this->state = $state;
         $this->number = $number;
         $this->complement = $complement;
@@ -123,6 +126,16 @@ class Ong
     public function setCity(string $city): void
     {
         $this->city = $city;
+    }
+
+    public function getNeighborhood(): string
+    {
+        return $this->neighborhood;
+    }
+
+    public function setNeighborhood(string $neighborhood): void
+    {
+        $this->neighborhood = $neighborhood;
     }
 
     public function getState(): string

@@ -17,6 +17,7 @@ Route::get('/faq', [LandingPageController::class, 'faq']);
 
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'store']);
+Route::get('/logout', [LoginController::class, 'destroy']);
 
 Route::get('/register', [UserController::class, 'index']);
 

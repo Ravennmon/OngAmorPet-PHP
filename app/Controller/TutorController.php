@@ -11,6 +11,20 @@ use App\Validations\TutorValidation;
 
 class TutorController extends Controller
 {
+    protected $fields = [
+        'name' => 'Nome',
+        'email' => 'Email',
+        'cpf' => 'CPF',
+        'phone' => 'Telefone',
+        'zipcode' => 'CEP',
+        'address' => 'Endereço',
+        'city' => 'Cidade',
+        'neighborhood' => 'Bairro',
+        'state' => 'Estado',
+        'number' => 'Número',
+        'complement' => 'Complemento'
+    ];
+
     public function index()
     {
         $tutors = (new TutorDao())->get();
@@ -21,7 +35,9 @@ class TutorController extends Controller
     }
 
     public function create(){
-        View::render('admin/tutors/create');
+        View::render('admin/tutors/create', [
+            'fields' => $this->fields
+        ]);
     }
 
     public function edit($id)
@@ -29,7 +45,8 @@ class TutorController extends Controller
         $tutor = (new TutorDao())->find($id);
 
         View::render('admin/tutors/edit', [
-            'tutor' => $tutor
+            'tutor' => $tutor,
+            'fields' => $this->fields
         ]);
     }
 
@@ -44,10 +61,12 @@ class TutorController extends Controller
         $tutor = new Tutor(
             $this->request->name,
             $this->request->email,
+            $this->request->cpf,
             $this->request->phone,
             $this->request->zipcode,
             $this->request->address,
             $this->request->city,
+            $this->request->neighborhood,
             $this->request->state,
             $this->request->number,
             $this->request->complement,
@@ -76,10 +95,12 @@ class TutorController extends Controller
         $sql = $tutorDao->update([
             'name' => $this->request->name,
             'email' => $this->request->email,
+            'cpf' => $this->request->cpf,
             'phone' => $this->request->phone,
             'zipcode' => $this->request->zipcode,
             'address' => $this->request->address,
             'city' => $this->request->city,
+            'neighborhood' => $this->request->neighborhood,
             'state' => $this->request->state,
             'number' => $this->request->number,
             'complement' => $this->request->complement,

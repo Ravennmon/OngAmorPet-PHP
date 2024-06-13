@@ -11,6 +11,21 @@ use App\Validations\OngValidation;
 
 class OngController extends Controller
 {
+    protected $fields = [
+        'name' => 'Nome',
+        'email' => 'Email',
+        'cnpj' => 'CNPJ',
+        'phone' => 'Telefone',
+        'zipcode' => 'CEP',
+        'state' => 'Estado',
+        'city' => 'Cidade',
+        'neighborhood' => 'Bairro',
+        'address' => 'Endereço',
+        'number' => 'Número',
+        'complement' => 'Complemento'
+    ];
+
+
     public function index()
     {
         $ongs = (new OngDao())->get();
@@ -21,7 +36,9 @@ class OngController extends Controller
     }
 
     public function create(){
-        View::render('admin/ongs/create');
+        View::render('admin/ongs/create', [
+            'fields' => $this->fields
+        ]);
     }
 
     public function edit($id)
@@ -29,7 +46,8 @@ class OngController extends Controller
         $ong = (new OngDao())->find($id);
 
         View::render('admin/ongs/edit', [
-            'ong' => $ong
+            'ong' => $ong,
+            'fields' => $this->fields
         ]);
     }
 
@@ -49,6 +67,7 @@ class OngController extends Controller
             $this->request->zipcode,
             $this->request->address,
             $this->request->city,
+            $this->request->neighborhood,
             $this->request->state,
             $this->request->number,
             $this->request->complement,
@@ -82,6 +101,7 @@ class OngController extends Controller
             'zipcode' => $this->request->zipcode,
             'address' => $this->request->address,
             'city' => $this->request->city,
+            'neighborhood' => $this->request->neighborhood,
             'state' => $this->request->state,
             'number' => $this->request->number,
             'complement' => $this->request->complement,

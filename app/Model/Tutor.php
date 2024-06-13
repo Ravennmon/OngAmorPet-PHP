@@ -7,10 +7,12 @@ class Tutor
     private int $id;
     private string $name;
     private string $email;
+    private string $cpf;
     private string $phone;
     private string $zipcode;
     private string $state;
     private string $city;
+    private string $neighborhood;
     private string $address;
     private string $number;
     private string $complement;
@@ -21,20 +23,24 @@ class Tutor
     public function __construct(
         string $name,
         string $email,
+        string $cpf,
         string $phone,
         string $zipcode,
         string $address,
         string $city,
+        string $neighborhood,
         string $state,
         string $number,
         string $complement
     ) {
         $this->name = $name;
         $this->email = $email;
+        $this->cpf = $cpf;
         $this->phone = $phone;
         $this->zipcode = $zipcode;
         $this->address = $address;
         $this->city = $city;
+        $this->neighborhood = $neighborhood;
         $this->state = $state;
         $this->number = $number;
         $this->complement = $complement;
@@ -70,6 +76,16 @@ class Tutor
     public function setEmail(string $email): void
     {
         $this->email = $email;
+    }
+
+    public function getCpf(): string
+    {
+        return $this->cpf;
+    }
+
+    public function setCpf(string $cpf): void
+    {
+        $this->cpf = $cpf;
     }
 
     public function getPhone(): string
@@ -112,6 +128,16 @@ class Tutor
         $this->city = $city;
     }
 
+    public function getNeighborhood(): string
+    {
+        return $this->neighborhood;
+    }
+
+    public function setNeighborhood(string $neighborhood): void
+    {
+        $this->neighborhood = $neighborhood;
+    }
+    
     public function getState(): string
     {
         return $this->state;
