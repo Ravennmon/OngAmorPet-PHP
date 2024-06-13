@@ -10,10 +10,13 @@
 
 <body class="vsc-initialized">
     <div class="sidebar">
-        <a href="/admin/tutors">
+        <a href="/home">
             <img src="/resources/img/logo3.svg" width="200" height="92">
         </a>
-        <ul class="nav flex-column">
+        <ul class="nav flex-column mt-4">
+            <li class="nav-item">
+                <a class="nav-link" href="/home">Página Inicial</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin/tutors">Tutores</a>
             </li>

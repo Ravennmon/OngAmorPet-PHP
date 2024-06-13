@@ -7,8 +7,8 @@ use App\Controller\Controller;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function notFound()
     {
-        View::render('dashboard', ['title' => 'Dashboard']);
+        View::render('404', ['title' => 'Página não encontrada']);
     }
 }

@@ -52,8 +52,6 @@ Route::delete('/admin/animals/{id}', [AnimalController::class, 'destroy']);
 
 Route::get('/registered', [RegisterController::class, 'index']);
 
-
-
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/404', [DashboardController::class, 'notFound']);
 
 return Route::getRoutes();

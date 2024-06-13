@@ -83,8 +83,7 @@ class Router
 
     protected function notFound()
     {
-        header("HTTP/1.0 404 Not Found");
-        echo '404 Not Found';
+        redirect('/404');
     }
 
     // TODO

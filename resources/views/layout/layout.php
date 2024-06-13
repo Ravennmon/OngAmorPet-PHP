@@ -20,7 +20,7 @@
             <a href="home">Inicio</a>
             <a href="faq">FAQ</a>
             <a href="about">Desenvolvedores</a>
-            <a href="login">Login</a>
+            <a href="<?= isset($_SESSION['user']) ? '/admin/tutors' : '/login'?>"><?= isset($_SESSION['user']) ? 'Admin' : 'Login' ?></a>
         </nav>
     </header>
 
