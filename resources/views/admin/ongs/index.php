@@ -2,7 +2,7 @@
 <?php ob_start(); ?>
 
 
-<a href="/admin/ongs/create" class="btn btn-info">Cadastrar</a>
+<a href="/admin/ongs/create" class="btn btn-purple">Cadastrar</a>
 <div class="card mt-4">
     <div class="card-header">
         <h2>Ongs</h2>

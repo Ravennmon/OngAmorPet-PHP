@@ -12,7 +12,7 @@
 <?php endif; ?>
 
 <div class="text-right">
-    <button type="button" class="btn btn-primary mb-4 " data-bs-toggle="modal" data-bs-target="#animais-modal">
+    <button type="button" class="btn btn-purple mb-4 " data-bs-toggle="modal" data-bs-target="#animais-modal">
         Visualizar Animais
     </button>
 </div>
@@ -25,7 +25,7 @@
         </div>
     <?php endforeach; ?>
 
-    <button type="button" class="btn btn-primary" onclick="saveTutor(<?php echo $tutor['id'] ?>)">Salvar</button>
+    <button type="button" class="btn btn-purple" onclick="saveTutor(<?php echo $tutor['id'] ?>)">Salvar</button>
 </form>
 
 <div class="modal fade" id="animais-modal" tabindex="-1" aria-labelledby="animais-modalLabel" aria-hidden="true">

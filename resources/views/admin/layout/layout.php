@@ -5,43 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'Admin' ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .sidebar {
-            width: 250px;
-            background-color: #343a40;
-            color: #fff;
-            padding: 10px;
-            position: fixed;
-            height: 100%;
-        }
-
-        .sidebar a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .content {
-            margin-left: 250px;
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .float-right {
-            float: right;
-        }
-    </style>
+    <link rel="stylesheet" href="/resources/css/admin_style.css">
 </head>
 
 <body class="vsc-initialized">
     <div class="sidebar">
-        <h2>AmorPet</h2>
+        <a href="/admin/tutors">
+            <img src="/resources/img/logo3.svg" width="200" height="92">
+        </a>
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link" href="/admin/tutors">Tutores</a>

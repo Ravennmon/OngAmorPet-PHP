@@ -10,7 +10,7 @@
         </div>
     <?php endforeach; ?>
 
-    <button type="button" class="btn btn-primary" onclick="createOng()">Criar</button>
+    <button type="button" class="btn btn-purple" onclick="createOng()">Criar</button>
 </form>
 
 <script>     

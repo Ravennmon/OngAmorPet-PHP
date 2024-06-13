@@ -2,7 +2,7 @@
 <?php ob_start(); ?>
 
 
-<a href="/admin/tutors/create" class="btn btn-info">Cadastrar</a>
+<a href="/admin/tutors/create" class="btn btn-purple">Cadastrar</a>
 
 <div class="card mt-4">
     <div class="card-header">

@@ -59,7 +59,7 @@
     </div>
 
 
-    <button type="button" class="btn btn-primary" onclick="createAnimal()">Criar</button>
+    <button type="button" class="btn btn-purple" onclick="createAnimal()">Criar</button>
 </form>
 
 <script>

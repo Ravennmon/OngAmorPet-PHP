@@ -10,7 +10,7 @@
         </div>
     <?php endforeach; ?>
 
-    <button type="button" class="btn btn-primary" onclick="createTutor()">Cadastrar</button>
+    <button type="button" class="btn btn-purple" onclick="createTutor()">Cadastrar</button>
 </form>
 
 <script>

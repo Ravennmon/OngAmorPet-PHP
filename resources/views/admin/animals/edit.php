@@ -68,7 +68,7 @@
         <label for="ong_id">Ong</label>
     </div>
 
-    <button type="button" class="btn btn-primary" onclick="editAnimal(<?= $animal['id'] ?>)">Salvar</button>
+    <button type="button" class="btn btn-purple" onclick="editAnimal(<?= $animal['id'] ?>)">Salvar</button>
 </form>
 
 <script>
