@@ -20,10 +20,15 @@
                 </tr>
             </thead>
             <tbody>
+                <?php if (empty($ongs)) : ?>
+                    <tr>
+                        <td colspan="6" class="text-center">Nenhum animal cadastrado</td>
+                    </tr>
+                <?php endif; ?>
                 <?php foreach ($animals as $animal) : ?>
                     <tr>
                         <td><?= $animal['id'] ?></td>
-                        <td><?= $animal['name'] ?></td>
+                        <td><?= normalizeFullName($animal['name']) ?></td>
                         <td><?= $animal['specie'] ?></td>
                         <td><?= $animal['breed'] ?></td>
                         <td><?= $animal['size'] ?></td>

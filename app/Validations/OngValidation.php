@@ -20,6 +20,7 @@ class OngValidation
             'zipcode',
             'address',
             'city',
+            'neighborhood',
             'state',
             'number',
         ];

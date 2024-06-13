@@ -15,10 +15,12 @@ class TutorValidation
         $fields = [
             'name',
             'email',
+            'cpf',
             'phone',
             'zipcode',
             'address',
             'city',
+            'neighborhood',
             'state',
             'number',
         ];

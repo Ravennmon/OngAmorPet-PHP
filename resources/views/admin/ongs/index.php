@@ -14,19 +14,26 @@
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Email</th>
+                    <th>CNPJ</th>
                     <th>Telefone</th>
                     <th>Endereço</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
+                <?php if (empty($ongs)) : ?>
+                    <tr>
+                        <td colspan="7" class="text-center">Nenhuma ong cadastrada</td>
+                    </tr>
+                <?php endif; ?>
                 <?php foreach ($ongs as $ong) : ?>
                     <tr>
                         <td><?= $ong['id'] ?></td>
-                        <td><?= $ong['name'] ?></td>
+                        <td><?= normalizeFullName($ong['name']) ?></td>
+                        <td><?= $ong['cnpj'] ?></td>
                         <td><?= $ong['email'] ?></td>
                         <td><?= $ong['phone'] ?></td>
-                        <td><?= $ong['address'] ?></td>
+                        <td><?= fullAddress($ong) ?></td>
                         <td>
                             <a href="/admin/ongs/edit/<?= $ong['id'] ?>" class="btn btn-warning">Editar</a>
                             <button onclick="deleteTutor(<?= $ong['id'] ?>)" class="btn btn-danger">Remover</button>

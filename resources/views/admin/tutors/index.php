@@ -15,6 +15,7 @@
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Email</th>
+                    <th>CPF</th>
                     <th>Telefone</th>
                     <th>Endereço</th>
                     <th>Ações</th>
@@ -23,15 +24,16 @@
             <tbody>
                 <?php if (empty($tutors)) : ?>
                     <tr>
-                        <td colspan="6">Nenhum tutor cadastrado</td>
+                        <td colspan="6" class="text-center">Nenhum tutor cadastrado</td>
                     </tr>
                 <?php endif; ?>
                 
                 <?php foreach ($tutors as $tutor) : ?>
                     <tr>
                         <td><?= $tutor['id'] ?></td>
-                        <td><?= $tutor['name'] ?></td>
+                        <td><?= normalizeFullName($tutor['name']) ?></td>
                         <td><?= $tutor['email'] ?></td>
+                        <td><?= $tutor['cpf'] ?></td>
                         <td><?= $tutor['phone'] ?></td>
                         <td><?= $tutor['address'] ?></td>
                         <td>
