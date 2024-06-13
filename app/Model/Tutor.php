@@ -4,21 +4,8 @@ namespace App\Model;
 
 class Tutor
 {
-    private int $id;
-    private string $name;
-    private string $email;
-    private string $cpf;
-    private string $phone;
-    private string $zipcode;
-    private string $state;
-    private string $city;
-    private string $neighborhood;
-    private string $address;
-    private string $number;
-    private string $complement;
-    private array $animals;
-    private string $created_at;
-    private string $updated_at;
+    private $created_at;
+    private $updated_at;
 
     public function __construct(
         string $name,
