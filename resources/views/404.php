@@ -1,8 +1,14 @@
 
 <?php ob_start(); ?>
 
-<section id="cadastrosucess" class="init login-form content-center">
-    <img src="resources/img/cat.svg" alt="" width="" height="">
+<style>
+    footer {
+        position: absolute;
+    }
+</style>
+
+<section class="init login-form content-center">
+    <img src="/resources/img/alimentos_pet.svg" alt="" width="" height="">
     <div>
         <h2>404</h2>
         <p>

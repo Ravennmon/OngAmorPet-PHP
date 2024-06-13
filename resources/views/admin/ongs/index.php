@@ -8,7 +8,7 @@
         <h2>Ongs</h2>
     </div>
     <div class="card-body">
-        <table class="table table-striped">
+        <table class="table">
             <thead>
                 <tr>
                     <th>ID</th>
