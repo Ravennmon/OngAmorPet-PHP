@@ -42,17 +42,20 @@ class TutorController extends Controller
 
     public function edit($id)
     {
-        $tutor = (new TutorDao())->find($id);
+        $tutorDao = new TutorDao();
+        $tutor = $tutorDao->find($id);
+        $animals = $tutorDao->getAnimals($tutor['id']);
 
         View::render('admin/tutors/edit', [
             'tutor' => $tutor,
-            'fields' => $this->fields
+            'fields' => $this->fields,
+            'animals' => $animals
         ]);
     }
 
     public function store()
     {
-        $validation = TutorValidation::validate($this->request);
+        $validation = TutorValidation::store($this->request);
 
         if ($validation !== true) {
             return Response::error($validation);
@@ -92,22 +95,32 @@ class TutorController extends Controller
     {
         $tutorDao = new TutorDao();
 
-        $sql = $tutorDao->update([
-            'name' => $this->request->name,
-            'email' => $this->request->email,
-            'cpf' => $this->request->cpf,
-            'phone' => $this->request->phone,
-            'zipcode' => $this->request->zipcode,
-            'address' => $this->request->address,
-            'city' => $this->request->city,
-            'neighborhood' => $this->request->neighborhood,
-            'state' => $this->request->state,
-            'number' => $this->request->number,
-            'complement' => $this->request->complement,
-            'updated_at' => date('Y-m-d H:i:s')
-        ], $id);
+        $validation = TutorValidation::update($this->request, $id);
 
-        return Response::success($sql);
+        if ($validation !== true) {
+            return Response::error($validation);
+        }
+
+        try {
+            $tutorDao->update([
+                'name' => $this->request->name,
+                'email' => $this->request->email,
+                'cpf' => $this->request->cpf,
+                'phone' => $this->request->phone,
+                'zipcode' => $this->request->zipcode,
+                'address' => $this->request->address,
+                'city' => $this->request->city,
+                'neighborhood' => $this->request->neighborhood,
+                'state' => $this->request->state,
+                'number' => $this->request->number,
+                'complement' => $this->request->complement,
+                'updated_at' => date('Y-m-d H:i:s')
+            ], $id);
+
+            return Response::success(true);
+        } catch (\Exception $e) {
+            return Response::error($e->getMessage());
+        }
     }
 
     public function destroy($id)

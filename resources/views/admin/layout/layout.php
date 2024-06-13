@@ -32,6 +32,10 @@
             padding: 20px;
             overflow-y: auto;
         }
+
+        .float-right {
+            float: right;
+        }
     </style>
 </head>
 

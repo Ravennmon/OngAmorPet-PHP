@@ -42,18 +42,20 @@ class OngController extends Controller
     }
 
     public function edit($id)
-    {
+    {        
         $ong = (new OngDao())->find($id);
+        $animals = (new OngDao())->getAnimals($ong['id']);
 
         View::render('admin/ongs/edit', [
             'ong' => $ong,
-            'fields' => $this->fields
+            'fields' => $this->fields,
+            'animals' => $animals
         ]);
     }
 
     public function store()
     {
-        $validation = OngValidation::validate($this->request);
+        $validation = OngValidation::store($this->request);
 
         if ($validation !== true) {
             return Response::error($validation);
@@ -91,9 +93,15 @@ class OngController extends Controller
 
     public function update($id)
     {
+        $validation = OngValidation::update($this->request, $id);
+
+        if ($validation !== true) {
+            return Response::error($validation);
+        }
+        
         $ongDao = new OngDao();
 
-        $sql = $ongDao->update([
+        $ongDao->update([
             'name' => $this->request->name,
             'email' => $this->request->email,
             'cnpj' => $this->request->cnpj,
@@ -108,7 +116,7 @@ class OngController extends Controller
             'updated_at' => date('Y-m-d H:i:s')
         ], $id);
 
-        return Response::success($sql);
+        return Response::success(true);
     }
 
     public function destroy($id)

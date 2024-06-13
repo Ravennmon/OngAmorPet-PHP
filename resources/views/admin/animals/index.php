@@ -14,13 +14,17 @@
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Espécie</th>
+                    <th>Raça</th>
                     <th>Tamanho</th>
                     <th>Sexo</th>
+                    <th>Ong</th>
+                    <th>Tutor</th>
+                    <th>Adotado?</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <?php if (empty($ongs)) : ?>
+                <?php if (empty($animals)) : ?>
                     <tr>
                         <td colspan="6" class="text-center">Nenhum animal cadastrado</td>
                     </tr>
@@ -29,10 +33,13 @@
                     <tr>
                         <td><?= $animal['id'] ?></td>
                         <td><?= normalizeFullName($animal['name']) ?></td>
-                        <td><?= $animal['specie'] ?></td>
+                        <td><?= getSpecie($animal['specie']) ?></td>
                         <td><?= $animal['breed'] ?></td>
-                        <td><?= $animal['size'] ?></td>
-                        <td><?= $animal['sex'] ?></td>
+                        <td><?= getSize($animal['size']) ?></td>
+                        <td><?= getSex($animal['sex']) ?></td>
+                        <td><?= getOng($animal['ong_id']) ?></td>
+                        <td><?= getTutor($animal['tutor_id']) ?></td>
+                        <td><?= isAdopted($animal['tutor_id']) ?></td>
                         <td>
                             <a href="/admin/animals/edit/<?= $animal['id'] ?>" class="btn btn-warning">Editar</a>
                             <button onclick="deleteAnimal(<?= $animal['id'] ?>)" class="btn btn-danger">Remover</button>

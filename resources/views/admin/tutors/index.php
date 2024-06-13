@@ -24,7 +24,7 @@
             <tbody>
                 <?php if (empty($tutors)) : ?>
                     <tr>
-                        <td colspan="6" class="text-center">Nenhum tutor cadastrado</td>
+                        <td colspan="7" class="text-center">Nenhum tutor cadastrado</td>
                     </tr>
                 <?php endif; ?>
                 

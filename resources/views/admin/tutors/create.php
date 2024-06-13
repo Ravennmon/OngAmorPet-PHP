@@ -4,8 +4,9 @@
 <h2>Cadastro</h2>
 <form id="cadastro-form">
     <?php foreach($fields as $key => $value): ?>
-        <div class="mb-3">
+        <div class="form-floating mb-3">
             <input type="text" class="form-control" name="<?= $key ?>" id="<?= $key ?>" placeholder="<?= $value ?>">
+            <label for="<?= $key ?>"><?= $value ?></label>
         </div>
     <?php endforeach; ?>
 

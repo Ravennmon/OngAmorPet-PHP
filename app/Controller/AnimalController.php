@@ -10,6 +10,7 @@ use App\Dao\AnimalDao;
 use App\Dao\OngDao;
 use App\Dao\TutorDao;
 use App\Model\Tutor;
+use App\Validations\AnimalValidation;
 
 class AnimalController extends Controller
 {
@@ -68,6 +69,12 @@ class AnimalController extends Controller
 
     public function store()
     {
+        $validation = AnimalValidation::store($this->request);
+
+        if ($validation !== true) {
+            return Response::error($validation);
+        }
+
         $animal = new Animal(
             $this->request->name,
             $this->request->specie,
@@ -97,9 +104,15 @@ class AnimalController extends Controller
 
     public function update($id)
     {
+        $validation = AnimalValidation::update($this->request);
+
+        if ($validation !== true) {
+            return Response::error($validation);
+        }
+
         $animalDao = new AnimalDao();
 
-        $sql = $animalDao->update([
+        $animalDao->update([
             'name' => $this->request->name,
             'specie' => $this->request->specie,
             'breed' => $this->request->breed,
@@ -111,7 +124,7 @@ class AnimalController extends Controller
             'updated_at' => date('Y-m-d H:i:s')
         ], $id);
 
-        return Response::success($sql);
+        return Response::success(true);
     }
 
     public function destroy($id)

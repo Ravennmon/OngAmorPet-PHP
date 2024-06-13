@@ -42,4 +42,8 @@ class OngDao extends BaseDao
             'updated_at' => $ong->getUpdatedAt()
         ]);
     }
+
+    public function getAnimals($ongId){
+        return (new AnimalDao())->where(['ong_id' => $ongId])->get();
+    }
 }

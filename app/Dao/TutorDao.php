@@ -41,4 +41,9 @@ class TutorDao extends BaseDao
             'updated_at' => $tutor->getUpdatedAt()
         ]);
     }
+
+    public function getAnimals($tutorId)
+    {
+        return (new AnimalDao())->where(['tutor_id' => $tutorId])->get();
+    }
 }
