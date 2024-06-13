@@ -40,20 +40,20 @@
         <h2>AmorPet</h2>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="/tutors">Tutores</a>
+                <a class="nav-link" href="/admin/tutors">Tutores</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/ongs">Ongs</a>
+                <a class="nav-link" href="/admin/ongs">Ongs</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/animals">Animais</a>
+                <a class="nav-link" href="/admin/animals">Animais</a>
             </li>
         </ul>
     </div>
     <div class="content">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Admin</a>
+                <a class="navbar-brand" href="#"><?= $_SESSION['user']['name'] ?></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

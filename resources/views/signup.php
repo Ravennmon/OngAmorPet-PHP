@@ -9,7 +9,7 @@
                 <input type="text" name="name" placeholder="Nome">
                 <input type="text" name="email" placeholder="Email">
                 <input type="password" name="password" placeholder="Senha">
-                <input type="submit" value="Cadastrar">
+                <input type="submit" class="btn-login" value="Cadastrar">
             </form>
 
         </div>

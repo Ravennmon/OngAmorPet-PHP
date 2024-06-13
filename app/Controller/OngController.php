@@ -15,20 +15,20 @@ class OngController extends Controller
     {
         $ongs = (new OngDao())->get();
 
-        View::render('ongs/index', [
+        View::render('admin/ongs/index', [
             'ongs' => $ongs
         ]);
     }
 
     public function create(){
-        View::render('ongs/create');
+        View::render('admin/ongs/create');
     }
 
     public function edit($id)
     {
         $ong = (new OngDao())->find($id);
 
-        View::render('ongs/edit', [
+        View::render('admin/ongs/edit', [
             'ong' => $ong
         ]);
     }

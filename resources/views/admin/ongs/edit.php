@@ -18,15 +18,15 @@
 
     foreach ($fields as $name => $placeholder) {
         echo '<div class="mb-3">';
-        echo '<input type="text" class="form-control" name="' . $name . '" placeholder="' . $placeholder . '" value="' . htmlspecialchars($tutor[$name]) . '">';
+        echo '<input type="text" class="form-control" name="' . $name . '" placeholder="' . $placeholder . '" value="' . htmlspecialchars($ong[$name]) . '">';
         echo '</div>';
     }
     ?>
-    <button type="button" class="btn btn-primary" onclick="saveTutor(<?php echo $tutor['id'] ?>)">Salvar</button>
+    <button type="button" class="btn btn-primary" onclick="saveTutor(<?php echo $ong['id'] ?>)">Salvar</button>
 </form>
 
 <script>
-    const saveTutor = (tutorId) => {
+    const saveTutor = (ongId) => {
         const formElements = document.querySelectorAll('#edit-form .form-control');
         let formData = {};
 
@@ -34,7 +34,7 @@
             formData[element.name] = element.value;
         });
 
-        fetch(`/tutors/${tutorId}`, {
+        fetch(`/admin/ongs/${ongId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -52,4 +52,4 @@
 </script>
 
 <?php $content = ob_get_clean(); ?>
-<?php include __DIR__ . '/../layout/admin_layout.php'; ?>
+<?php include __DIR__ . '/../layout/layout.php'; ?>

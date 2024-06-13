@@ -25,29 +25,29 @@ Route::get('/users/{id}', [UserController::class, 'show']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
 
-Route::get('/tutors', [TutorController::class, 'index']);
-Route::post('/tutors', [TutorController::class, 'store']);
-Route::get('/tutors/create', [TutorController::class, 'create']);
-Route::get('/tutors/edit/{id}', [TutorController::class, 'edit']);
-Route::get('/tutors/{id}', [TutorController::class, 'show']);
-Route::put('/tutors/{id}', [TutorController::class, 'update']);
-Route::delete('/tutors/{id}', [TutorController::class, 'destroy']);
+Route::get('/admin/tutors', [TutorController::class, 'index']);
+Route::post('/admin/tutors', [TutorController::class, 'store']);
+Route::get('/admin/tutors/create', [TutorController::class, 'create']);
+Route::get('/admin/tutors/edit/{id}', [TutorController::class, 'edit']);
+Route::get('/admin/tutors/{id}', [TutorController::class, 'show']);
+Route::put('/admin/tutors/{id}', [TutorController::class, 'update']);
+Route::delete('/admin/tutors/{id}', [TutorController::class, 'destroy']);
 
-Route::get('/ongs', [OngController::class, 'index']);
-Route::post('/ongs', [OngController::class, 'store']);
-Route::get('/ongs/create', [OngController::class, 'create']);
-Route::get('/ongs/edit/{id}', [OngController::class, 'edit']);
-Route::get('/ongs/{id}', [OngController::class, 'show']);
-Route::put('/ongs/{id}', [OngController::class, 'update']);
-Route::delete('/ongs/{id}', [OngController::class, 'destroy']);
+Route::get('/admin/ongs', [OngController::class, 'index']);
+Route::post('/admin/ongs', [OngController::class, 'store']);
+Route::get('/admin/ongs/create', [OngController::class, 'create']);
+Route::get('/admin/ongs/edit/{id}', [OngController::class, 'edit']);
+Route::get('/admin/ongs/{id}', [OngController::class, 'show']);
+Route::put('/admin/ongs/{id}', [OngController::class, 'update']);
+Route::delete('/admin/ongs/{id}', [OngController::class, 'destroy']);
 
-Route::get('/animals', [AnimalController::class, 'index']);
-Route::post('/animals', [AnimalController::class, 'store']);
-Route::get('/animals/create', [AnimalController::class, 'create']);
-Route::get('/animals/edit/{id}', [AnimalController::class, 'edit']);
-Route::get('/animals/{id}', [AnimalController::class, 'show']);
-Route::put('/animals/{id}', [AnimalController::class, 'update']);
-Route::delete('/animals/{id}', [AnimalController::class, 'destroy']);
+Route::get('/admin/animals', [AnimalController::class, 'index']);
+Route::post('/admin/animals', [AnimalController::class, 'store']);
+Route::get('/admin/animals/create', [AnimalController::class, 'create']);
+Route::get('/admin/animals/edit/{id}', [AnimalController::class, 'edit']);
+Route::get('/admin/animals/{id}', [AnimalController::class, 'show']);
+Route::put('/admin/animals/{id}', [AnimalController::class, 'update']);
+Route::delete('/admin/animals/{id}', [AnimalController::class, 'destroy']);
 
 Route::get('/register_success', [RegisterController::class, 'index']);
 

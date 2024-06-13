@@ -37,7 +37,7 @@
         .then(response => response.json())
         .then(data => {
             if(data === true){
-                window.location.href = '/tutors';
+                window.location.href = '/admin/tutors';
             } else {
                 setErrors(data);
             }

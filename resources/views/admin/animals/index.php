@@ -2,7 +2,7 @@
 <?php ob_start(); ?>
 
 
-<a href="/animals/create" class="btn btn-info">Cadastrar</a>
+<a href="/admin/animals/create" class="btn btn-info">Cadastrar</a>
 <div class="card mt-4">
     <div class="card-header">
         <h2>Animais</h2>
@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                <? foreach ($animals as $animal) : ?>
+                <?php foreach ($animals as $animal) : ?>
                     <tr>
                         <td><?= $animal['id'] ?></td>
                         <td><?= $animal['name'] ?></td>
@@ -29,11 +29,11 @@
                         <td><?= $animal['size'] ?></td>
                         <td><?= $animal['sex'] ?></td>
                         <td>
-                            <a href="/animals/edit/<?= $animal['id'] ?>" class="btn btn-warning">Editar</a>
+                            <a href="/admin/animals/edit/<?= $animal['id'] ?>" class="btn btn-warning">Editar</a>
                             <button onclick="deleteAnimal(<?= $animal['id'] ?>)" class="btn btn-danger">Remover</button>
                         </td>
                     </tr>
-                <? endforeach; ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
@@ -41,7 +41,7 @@
 
 <script>
     const deleteAnimal = (id) => {
-        fetch(`/animals/${id}`, {
+        fetch(`/admin/animals/${id}`, {
             method: 'DELETE'
         })
         .then(() => {
@@ -52,4 +52,4 @@
     }
 </script>
 <?php $content = ob_get_clean(); ?>
-<?php include __DIR__ . '/../layout/admin_layout.php'; ?>
+<?php include __DIR__ . '/../layout/layout.php'; ?>

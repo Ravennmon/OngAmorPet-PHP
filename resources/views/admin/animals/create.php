@@ -61,7 +61,7 @@
             
         });
 
-        fetch('/animals', {
+        fetch('/admin/animals', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -70,7 +70,7 @@
         })
         .then(response => response.json())
         .then(data => {
-            window.location.href = '/animals';
+            window.location.href = '/admin/animals';
         })
         .catch(error => {
             console.error('Error:', error);
@@ -79,4 +79,4 @@
 </script>
 
 <?php $content = ob_get_clean(); ?>
-<?php include __DIR__ . '/../layout/admin_layout.php'; ?>
+<?php include __DIR__ . '/../layout/layout.php'; ?>

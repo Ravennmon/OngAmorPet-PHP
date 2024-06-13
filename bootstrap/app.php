@@ -1,15 +1,15 @@
 <?php
 
 use App\Core\Router;
+use App\Dao\UserDao;
 
 session_start();
 
+if (isset($_COOKIE['remember_me']) && !isset($_SESSION['user'])) {
+    $user = (new UserDao())->where(['remember_token' => $_COOKIE['remember_me']])->first();
 
-if (isset($_COOKIE['remember_me']) && isset($_SESSION['remember_me_token'])) {
-    if ($_COOKIE['remember_me'] == $_SESSION['remember_me_token']) {
-        $_SESSION['username'] = 'user1'; // Ideally, look up the user by token from the database
-        echo "Welcome back, " . htmlspecialchars($_SESSION['username']);
-        exit;
+    if ($_COOKIE['remember_me'] == $user['remember_token']) {
+        $_SESSION['user'] = $user;
     }
 }
 
@@ -20,7 +20,4 @@ $router = new Router($routes);
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
 
-
 $router->dispatch($uri, $method);
-
-//echo 'Hello World!';

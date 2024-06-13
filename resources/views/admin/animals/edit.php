@@ -9,7 +9,7 @@
 
     <select class="form form-select mb-3" name="specie">
         <?php foreach ($species as $key => $value) : ?>
-            <option <? if($value == $animal['specie']) :?> selected <?php endif ?> value="<?= $key ?>"><?= $value ?></option>
+            <option <?php if($value == $animal['specie']) :?> selected <?php endif ?> value="<?= $key ?>"><?= $value ?></option>
         <?php endforeach; ?>
 
     </select>
@@ -24,13 +24,13 @@
 
     <select class="form form-select mb-3" name="size">
         <?php foreach ($sizes as $key => $value) : ?>
-            <option <? if($value == $animal['size']) :?> selected <?php endif ?> value="<?= $key ?>"><?= $value ?></option>
+            <option <?php if($value == $animal['size']) :?> selected <?php endif ?> value="<?= $key ?>"><?= $value ?></option>
         <?php endforeach; ?>
     </select>
 
     <select class="form form-select mb-3" name="sex">
         <?php foreach ($sexes as $key => $value) : ?>
-            <option <? if($value == $animal['sex']) :?> selected <?php endif ?>  value="<?= $key ?>"><?= $value ?></option>
+            <option <?php if($value == $animal['sex']) :?> selected <?php endif ?>  value="<?= $key ?>"><?= $value ?></option>
         <?php endforeach; ?>
     </select>
 
@@ -62,7 +62,7 @@
             
         });
 
-        fetch(`/animals/${animalId}`, {
+        fetch(`/admin/animals/${animalId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -80,4 +80,4 @@
 </script>
 
 <?php $content = ob_get_clean(); ?>
-<?php include __DIR__ . '/../layout/admin_layout.php'; ?>
+<?php include __DIR__ . '/../layout/layout.php'; ?>

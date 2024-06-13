@@ -15,20 +15,20 @@ class TutorController extends Controller
     {
         $tutors = (new TutorDao())->get();
 
-        View::render('tutors/index', [
+        View::render('admin/tutors/index', [
             'tutors' => $tutors
         ]);
     }
 
     public function create(){
-        View::render('tutors/create');
+        View::render('admin/tutors/create');
     }
 
     public function edit($id)
     {
         $tutor = (new TutorDao())->find($id);
 
-        View::render('tutors/edit', [
+        View::render('admin/tutors/edit', [
             'tutor' => $tutor
         ]);
     }
