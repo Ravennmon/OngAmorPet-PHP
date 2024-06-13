@@ -128,6 +128,6 @@ class OngController extends Controller
 
         $ongDao->delete($id);
 
-        header('Location: /ongs');
+        redirect('/ongs');
     }
 }

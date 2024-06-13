@@ -3,6 +3,11 @@
 use App\Dao\OngDao;
 use App\Dao\TutorDao;
 
+function redirect($path){
+    header("Location: $path");
+    exit();
+}
+
 function fullAddress($arr){
     return $arr['address'] . ', ' . $arr['number'] . ' - ' . $arr['neighborhood'] . ', ' . $arr['city'] . ' - ' . $arr['state'];
 }

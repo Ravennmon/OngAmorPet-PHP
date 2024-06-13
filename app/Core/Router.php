@@ -21,7 +21,7 @@ class Router
         }
 
         if (str_starts_with($uri, '/admin') && !isset($_SESSION['user'])) {
-            header('Location: /login');
+            redirect('/login');
             return;
         }
 

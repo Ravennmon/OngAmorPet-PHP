@@ -30,7 +30,7 @@ class UserController extends Controller
         $baseDao->store($user);
 
         
-        header('Location: register_success');
+        redirect('/register_success');
     }
 
     public function show($id)

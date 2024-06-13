@@ -132,6 +132,6 @@ class TutorController extends Controller
 
         $tutorDao->delete($id);
 
-        header('Location: /tutors');
+        redirect('/tutors');
     }
 }

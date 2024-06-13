@@ -136,6 +136,6 @@ class AnimalController extends Controller
 
         $animalDao->delete($id);
 
-        header('Location: /animals');
+        redirect('/animals');
     }
 }
