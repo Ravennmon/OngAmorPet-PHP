@@ -1,6 +1,12 @@
 
 <?php ob_start(); ?>
 
+<style>
+    footer {
+        position: absolute;
+    }
+</style>
+
 <section id="cadastrosucess" class="init login-form content-center">
     <img src="resources/img/cat.svg" alt="" width="" height="">
     <div>

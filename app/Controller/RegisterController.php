@@ -13,6 +13,6 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        View::render('register_success', ['title' => 'Registrar-se']);
+        View::render('registered', ['title' => 'Registrar-se']);
     }
 }

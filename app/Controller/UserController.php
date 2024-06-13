@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        View::render('signup', ['title' => 'Cadastro de Usuário']);
+        View::render('register', ['title' => 'Cadastro de Usuário']);
     }
 
     public function store()
