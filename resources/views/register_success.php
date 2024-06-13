@@ -1,4 +1,4 @@
-<?php $title = 'Desenvolvedores'; ?>
+
 <?php ob_start(); ?>
 
 <section id="cadastrosucess" class="init login-form content-center">

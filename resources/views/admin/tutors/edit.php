@@ -1,4 +1,4 @@
-<?php $title = 'Desenvolvedores'; ?>
+
 <?php ob_start(); ?>
 
 <h2>Editar</h2>

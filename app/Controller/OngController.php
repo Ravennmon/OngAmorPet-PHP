@@ -31,12 +31,14 @@ class OngController extends Controller
         $ongs = (new OngDao())->get();
 
         View::render('admin/ongs/index', [
+            'title' => 'Lista de Ongs',
             'ongs' => $ongs
         ]);
     }
 
     public function create(){
         View::render('admin/ongs/create', [
+            'title' => 'Cadastrar Ong',
             'fields' => $this->fields
         ]);
     }
@@ -47,6 +49,7 @@ class OngController extends Controller
         $animals = (new OngDao())->getAnimals($ong['id']);
 
         View::render('admin/ongs/edit', [
+            'title' => 'Editar Ong',
             'ong' => $ong,
             'fields' => $this->fields,
             'animals' => $animals

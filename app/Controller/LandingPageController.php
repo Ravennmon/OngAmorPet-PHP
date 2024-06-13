@@ -10,17 +10,17 @@ class LandingPageController
 {
     public function index()
     {
-        View::render('home', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
+        View::render('home', ['title' => 'Amor Pet']);
     }
 
     public function about()
     {
-        View::render('about', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
+        View::render('about', ['title' => 'Sobre Nós']);
     }
 
     public function faq()
     {
-        View::render('faq', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
+        View::render('faq', ['title' => 'Perguntas Frequentes']);
     }
     
 }

@@ -1,4 +1,3 @@
-<?php $title = 'Desenvolvedores'; ?>
 <?php ob_start(); ?>
 
 <section id="Pedro" class="init profile fade fade-right">

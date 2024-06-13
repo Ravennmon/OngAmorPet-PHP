@@ -30,12 +30,14 @@ class TutorController extends Controller
         $tutors = (new TutorDao())->get();
 
         View::render('admin/tutors/index', [
+            'title' => 'Lista de Tutores',
             'tutors' => $tutors
         ]);
     }
 
     public function create(){
         View::render('admin/tutors/create', [
+            'title' => 'Cadastrar Tutor',
             'fields' => $this->fields
         ]);
     }
@@ -47,6 +49,7 @@ class TutorController extends Controller
         $animals = $tutorDao->getAnimals($tutor['id']);
 
         View::render('admin/tutors/edit', [
+            'title' => 'Editar Tutor',
             'tutor' => $tutor,
             'fields' => $this->fields,
             'animals' => $animals

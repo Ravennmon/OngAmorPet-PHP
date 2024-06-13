@@ -9,6 +9,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        View::render('dashboard', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
+        View::render('dashboard', ['title' => 'Dashboard']);
     }
 }

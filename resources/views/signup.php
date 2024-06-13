@@ -1,4 +1,4 @@
-<?php $title = 'Desenvolvedores'; ?>
+
 <?php ob_start(); ?>
 
 <section id="login" class="init login-form fade fade-right">

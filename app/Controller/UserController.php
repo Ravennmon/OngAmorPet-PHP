@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        View::render('signup', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
+        View::render('signup', ['title' => 'Cadastro de Usuário']);
     }
 
     public function store()

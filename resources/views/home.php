@@ -1,4 +1,4 @@
-<?php $title = 'Desenvolvedores'; ?>
+
 <?php ob_start(); ?>
 
 <section id="inicio" class="init fade fade-right">

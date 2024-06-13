@@ -13,7 +13,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        View::render('login', ['title' => 'Home Page', 'content' => 'Welcome to the Home Page']);
+        View::render('login', ['title' => 'Login']);
     }
 
     public function store()

@@ -36,6 +36,7 @@ class AnimalController extends Controller
         $animals = (new AnimalDao())->get();
 
         View::render('admin/animals/index', [
+            'title' => 'Lista de Animais',
             'animals' => $animals
         ]);
     }
@@ -44,6 +45,7 @@ class AnimalController extends Controller
         $ongs = (new OngDao())->get();
 
         View::render('admin/animals/create', [
+            'title' => 'Cadastrar Animal',
             'ongs' => $ongs,
             'sizes' => $this->sizes,
             'sexes' => $this->sexes,
@@ -58,6 +60,7 @@ class AnimalController extends Controller
         $ong = (new OngDao())->find($animal['ong_id']);
 
         View::render('admin/animals/edit', [
+            'title' => 'Editar Animal',
             'animal' => $animal,
             'tutors' => $tutors,
             'sizes' => $this->sizes,
