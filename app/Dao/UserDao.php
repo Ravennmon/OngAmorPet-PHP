@@ -7,7 +7,7 @@ use App\Model\User;
 class UserDao extends BaseDao
 {
     protected $table = 'users';
-    protected $fillable = ['name', 'email', 'password', 'remember_me', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'email', 'password', 'remember_me', 'remember_token', 'created_at', 'updated_at'];
 
     public function store(User $user)
     {

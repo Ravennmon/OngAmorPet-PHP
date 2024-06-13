@@ -8,6 +8,7 @@ class User
     private string $name;
     private string $email;
     private string $password;
+    private string $remember_token;
     private string $created_at;
     private string $updated_at;
 
@@ -61,6 +62,16 @@ class User
     public function setPassword(string $password): void
     {
         $this->password = $password;
+    }
+
+    public function getRememberToken(): string
+    {
+        return $this->remember_token;
+    }
+
+    public function setRememberToken(string $remember_token): void
+    {
+        $this->remember_token = $remember_token;
     }
 
     public function getCreatedAt(): string
