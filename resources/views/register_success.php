@@ -12,8 +12,8 @@
             <a href="http://instagram.com/crazycatgang" target="_blank"> CrazyCatGang</a>
         </p>
         <div>
-            <a href="home" class="botao">
-                Voltar para página inicial
+            <a href="/login" class="botao">
+                Voltar para tela de login
             </a>
         </div>
             
