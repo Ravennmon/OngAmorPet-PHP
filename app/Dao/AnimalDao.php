@@ -25,15 +25,16 @@ class AnimalDao extends BaseDao
     public function store(Animal $animal)
     {
         return $this->create([
-            'name' => $animal->getName(),
-            'specie' => $animal->getSpecie(),
-            'breed' => $animal->getBreed(),
-            'birth_date' => $animal->getBirthDate(),
-            'size' => $animal->getSize(),
-            'sex' => $animal->getSex(),
-            'ong_id' => $animal->getOngId(),
-            'created_at' => $animal->getCreatedAt(),
-            'updated_at' => $animal->getUpdatedAt()
+            'name' => $animal->name,
+            'specie' => $animal->specie,
+            'breed' => $animal->breed,
+            'birth_date' => $animal->birth_date,
+            'size' => $animal->size,
+            'sex' => $animal->sex,
+            'tutor_id' => $animal->tutor_id,
+            'ong_id' => $animal->ong_id,
+            'created_at' => $animal->created_at,
+            'updated_at' => $animal->updated_at
         ]);
     }
 }

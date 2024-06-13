@@ -26,19 +26,19 @@ class TutorDao extends BaseDao
     public function store(Tutor $tutor)
     {
         return $this->create([
-            'name' => $tutor->getName(),
-            'email' => $tutor->getEmail(),
-            'cpf' => $tutor->getCpf(),
-            'phone' => $tutor->getPhone(),
-            'zipcode' => $tutor->getZipcode(),
-            'address' => $tutor->getAddress(),
-            'city' => $tutor->getCity(),
-            'neighborhood' => $tutor->getNeighborhood(),
-            'state' => $tutor->getState(),
-            'number' => $tutor->getNumber(),
-            'complement' => $tutor->getComplement(),
-            'created_at' => $tutor->getCreatedAt(),
-            'updated_at' => $tutor->getUpdatedAt()
+            'name' => $tutor->name,
+            'email' => $tutor->email,
+            'cpf' => $tutor->cpf,
+            'phone' => $tutor->phone,
+            'zipcode' => $tutor->zipcode,
+            'address' => $tutor->address,
+            'city' => $tutor->city,
+            'neighborhood' => $tutor->neighborhood,
+            'state' => $tutor->state,
+            'number' => $tutor->number,
+            'complement' => $tutor->complement,
+            'created_at' => $tutor->created_at,
+            'updated_at' => $tutor->updated_at
         ]);
     }
 

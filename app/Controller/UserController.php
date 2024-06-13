@@ -8,6 +8,7 @@ use App\Controller\Controller;
 use App\Core\Response;
 use App\Dao\BaseDao;
 use App\Dao\UserDao;
+use App\Validations\UserValidation;
 
 class UserController extends Controller
 {
@@ -18,18 +19,22 @@ class UserController extends Controller
 
     public function store()
     {
+        $validation = UserValidation::store($this->request);
+
+        if ($validation !== true) {
+            return Response::error($validation);
+        }
+
         $user = new User(
             $this->request->name,
             $this->request->email,
             $this->request->password,
-            false
         );
 
         $baseDao = new UserDao();
 
         $baseDao->store($user);
 
-        
         redirect('/register_success');
     }
 

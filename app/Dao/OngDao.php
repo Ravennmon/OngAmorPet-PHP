@@ -27,19 +27,19 @@ class OngDao extends BaseDao
     public function store(Ong $ong)
     {
         return $this->create([
-            'name' => $ong->getName(),
-            'email' => $ong->getEmail(),
-            'cnpj' => $ong->getCnpj(),
-            'phone' => $ong->getPhone(),
-            'zipcode' => $ong->getZipcode(),
-            'state' => $ong->getState(),
-            'city' => $ong->getCity(),
-            'neighborhood' => $ong->getNeighborhood(),
-            'address' => $ong->getAddress(),
-            'number' => $ong->getNumber(),
-            'complement' => $ong->getComplement(),
-            'created_at' => $ong->getCreatedAt(),
-            'updated_at' => $ong->getUpdatedAt()
+            'name' => $ong->name,
+            'email' => $ong->email,
+            'cnpj' => $ong->cnpj,
+            'phone' => $ong->phone,
+            'zipcode' => $ong->zipcode,
+            'state' => $ong->state,
+            'city' => $ong->city,
+            'neighborhood' => $ong->neighborhood,
+            'address' => $ong->address,
+            'number' => $ong->number,
+            'complement' => $ong->complement,
+            'created_at' => $ong->created_at,
+            'updated_at' => $ong->updated_at
         ]);
     }
 
