@@ -1,7 +1,7 @@
 
 <?php ob_start(); ?>
 
-<h2>Editar</h2>
+<h2>Editar Tutor</h2>
 
 <?php if(isset($_SESSION['success_message'])): ?>
     <div class="alert alert-success" role="alert" id="sucess-message">
@@ -20,12 +20,12 @@
 <form id="edit-form">
     <?php foreach($fields as $key => $value): ?>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" name="<?= $key ?>"  id="<?= $key ?>" placeholder="<?= $value ?>" value="<?= $tutor[$key] ?>">
+            <input type="text" class="form form-control" name="<?= $key ?>"  id="<?= $key ?>" placeholder="<?= $value ?>" value="<?= $tutor[$key] ?>">
             <label for="<?= $key ?>"><?= $value ?></label>
         </div>
     <?php endforeach; ?>
 
-    <button type="button" class="btn btn-purple" onclick="saveTutor(<?php echo $tutor['id'] ?>)">Salvar</button>
+    <button type="button" class="btn btn-purple" onclick="update('tutors/<?= $tutor['id'] ?>')">Salvar</button>
 </form>
 
 <div class="modal fade" id="animais-modal" tabindex="-1" aria-labelledby="animais-modalLabel" aria-hidden="true">
@@ -53,59 +53,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    const saveTutor = (tutorId) => {
-        const formElements = document.querySelectorAll('#edit-form .form-control');
-        let formData = {};
-
-        formElements.forEach(element => {
-            formData[element.name] = element.value;
-        });
-
-        fetch(`/admin/tutors/${tutorId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data === true){
-                window.location.reload();
-            } else {
-                setErrors(data);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }
-
-    const setErrors = (errors) => {
-        document.querySelector('#sucess-message').remove();
-        const formElements = document.querySelectorAll('#edit-form .form-control');
-        formElements.forEach(element => {
-            element.classList.remove('is-invalid');
-        });
-
-        const errorDivs = document.querySelectorAll('.invalid-feedback');
-        errorDivs.forEach(errorDiv => errorDiv.remove());
-
-        if (errors) {
-            Object.keys(errors).forEach(error => {
-                const element = document.querySelector(`[name="${error}"]`);
-                element.classList.add('is-invalid');
-                
-                const errorDiv = document.createElement('div');
-                errorDiv.classList.add('invalid-feedback');
-                errorDiv.innerHTML = errors[error];
-                element.insertAdjacentElement('afterend', errorDiv);
-            });
-        }
-    }
-</script>
 
 <?php $content = ob_get_clean(); ?>
 <?php include __DIR__ . '/../layout/layout.php'; ?>

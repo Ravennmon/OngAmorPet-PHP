@@ -37,7 +37,7 @@
                         <td>
                             
                             <a href="/admin/ongs/edit/<?= $ong['id'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                            <button onclick="deleteTutor(<?= $ong['id'] ?>)" class="btn btn-danger">Excluir</button>
+                            <button onclick="destroy('ongs/<?= $ong['id'] ?>')" class="btn btn-danger">Excluir</button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -46,17 +46,5 @@
     </div>
 </div>
 
-<script>
-    const deleteTutor = (id) => {
-        fetch(`/admin/ongs/${id}`, {
-            method: 'DELETE'
-        })
-        .then(() => {
-            window.location.reload();
-        })
-        .catch(err => console.error(err));
-
-    }
-</script>
 <?php $content = ob_get_clean(); ?>
 <?php include __DIR__ . '/../layout/layout.php'; ?>

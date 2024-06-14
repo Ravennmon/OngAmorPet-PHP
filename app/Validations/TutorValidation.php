@@ -25,7 +25,7 @@ class TutorValidation
         ];
 
         foreach ($fields as $field) {
-            if (strlen(trim($request->$field)) == 0) {
+            if (is_null($request->$field) || strlen(trim($request->$field)) == 0) {
                 $errors[$field] = 'Campo obrigatório!';
             }
         }

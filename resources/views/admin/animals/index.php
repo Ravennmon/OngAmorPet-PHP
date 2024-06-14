@@ -42,7 +42,7 @@
                         <td><?= isAdopted($animal['tutor_id']) ?></td>
                         <td>
                             <a href="/admin/animals/edit/<?= $animal['id'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                            <button onclick="deleteAnimal(<?= $animal['id'] ?>)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                            <button onclick="destroy('animals/<?= $animal['id'] ?>')" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -51,17 +51,5 @@
     </div>
 </div>
 
-<script>
-    const deleteAnimal = (id) => {
-        fetch(`/admin/animals/${id}`, {
-            method: 'DELETE'
-        })
-        .then(() => {
-            window.location.reload();
-        })
-        .catch(err => console.error(err));
-
-    }
-</script>
 <?php $content = ob_get_clean(); ?>
 <?php include __DIR__ . '/../layout/layout.php'; ?>

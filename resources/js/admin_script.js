@@ -6,6 +6,104 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('zipcode')?.addEventListener('blur', seachCep);
 })
 
+const store = (endpoint) => {
+    const formElements = document.querySelectorAll('.form');
+    let formData = {};
+
+    formElements.forEach(element => {
+        if(element.name.includes('_id')){
+            formData[element.name] = element.value ? parseInt(element.value) : null;
+        } else {
+            formData[element.name] = element.value;
+        }
+        
+    });
+
+    fetch(`/admin/${endpoint}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.id){
+            window.location.href = `/admin/${endpoint}`;
+        } else {
+            setErrors(data);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+const update = (endpoint) => {
+    const formElements = document.querySelectorAll('.form');
+    let formData = {};
+
+
+    formElements.forEach(element => {
+        formData[element.name] = element.value;
+        });
+    console.log(formData);
+
+    fetch(`/admin/${endpoint}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data === true){
+            window.location.reload();
+        } else {
+            setErrors(data);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+const destroy = (endpoint) => {
+    fetch(`/admin/${endpoint}`, {
+        method: 'DELETE'
+    })
+    .then(() => {
+        window.location.reload();
+    })
+    .catch(err => console.error(err));
+
+}
+
+const setErrors = (errors) => {
+    document.querySelector('#sucess-message')?.remove();
+
+    const formElements = document.querySelectorAll('.form');
+    formElements.forEach(element => {
+        element.classList.remove('is-invalid');
+    });
+
+    const errorDivs = document.querySelectorAll('.invalid-feedback');
+    errorDivs.forEach(errorDiv => errorDiv.remove());
+
+    if (errors) {
+        Object.keys(errors).forEach(error => {
+            const element = document.querySelector(`[name="${error}"]`);
+            element.classList.add('is-invalid');
+            
+            const errorDiv = document.createElement('div');
+            errorDiv.classList.add('invalid-feedback');
+            errorDiv.innerHTML = errors[error];
+            element.insertAdjacentElement('afterend', errorDiv);
+        });
+    }
+}
+
 const maskPhone = (e) => {
     let input = e.target.value;
     input = input.replace(/\D/g, ''); 

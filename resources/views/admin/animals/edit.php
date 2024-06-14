@@ -1,7 +1,6 @@
-<?php $title = 'Cadastro de Animais'; ?>
 <?php ob_start(); ?>
 
-<h2>Cadastro</h2>
+<h2>Editar Animal</h2>
 
 <?php if(isset($_SESSION['success_message'])): ?>
     <div class="alert alert-success" role="alert" id="sucess-message">
@@ -68,69 +67,8 @@
         <label for="ong_id">Ong</label>
     </div>
 
-    <button type="button" class="btn btn-purple" onclick="editAnimal(<?= $animal['id'] ?>)">Salvar</button>
+    <button type="button" class="btn btn-purple" onclick="update('animals/<?= $animal['id'] ?>')">Salvar</button>
 </form>
-
-<script>
-    const editAnimal = (animalId) => {
-        const formElements = document.querySelectorAll('#animal-form .form');
-        let formData = {};
-
-        formElements.forEach(element => {
-            if(element.name.includes('_id')){
-                formData[element.name] = +element.value;
-            } else {
-                formData[element.name] = element.value;
-            }
-            
-        });
-
-        fetch(`/admin/animals/${animalId}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data === true){
-                window.location.reload();
-            } else {
-                setErrors(data);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }
-
-    const setErrors = (errors) => {
-        const formElements = document.querySelectorAll('#animal-form .form');
-        formElements.forEach(element => {
-            element.classList.remove('is-invalid');
-        });
-
-        const errorDivs = document.querySelectorAll('.invalid-feedback');
-        errorDivs.forEach(errorDiv => errorDiv.remove());
-
-        if (errors) {
-            Object.keys(errors).forEach(error => {
-                const element = document.querySelector(`[name="${error}"]`);
-
-                if(element){
-                    element.classList.add('is-invalid');
-                
-                    const errorDiv = document.createElement('div');
-                    errorDiv.classList.add('invalid-feedback');
-                    errorDiv.innerHTML = errors[error];
-                    element.insertAdjacentElement('afterend', errorDiv);
-                }
-                
-            });
-        }
-    }
-</script>
 
 <?php $content = ob_get_clean(); ?>
 <?php include __DIR__ . '/../layout/layout.php'; ?>

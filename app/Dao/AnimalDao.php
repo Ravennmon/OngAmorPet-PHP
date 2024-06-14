@@ -31,7 +31,6 @@ class AnimalDao extends BaseDao
             'birth_date' => $animal->birth_date,
             'size' => $animal->size,
             'sex' => $animal->sex,
-            'tutor_id' => $animal->tutor_id,
             'ong_id' => $animal->ong_id,
             'created_at' => $animal->created_at,
             'updated_at' => $animal->updated_at

@@ -59,69 +59,10 @@
     </div>
 
 
-    <button type="button" class="btn btn-purple" onclick="createAnimal()">Criar</button>
+    <button type="button" class="btn btn-purple" onclick="store('animals')">Criar</button>
 </form>
 
-<script>
-    const createAnimal = () => {
-        const formElements = document.querySelectorAll('#animal-form .form');
-        let formData = {};
 
-        formElements.forEach(element => {
-            if(element.name.includes('ong_id')){
-                formData[element.name] = element.value ? parseInt(element.value) : null;
-            } else {
-                formData[element.name] = element.value;
-            }
-            
-        });
-
-        fetch('/admin/animals', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if(data.id){
-                window.location.href = '/admin/animals';
-            } else {
-                setErrors(data);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    }
-
-    const setErrors = (errors) => {
-        const formElements = document.querySelectorAll('#animal-form .form');
-        formElements.forEach(element => {
-            element.classList.remove('is-invalid');
-        });
-
-        const errorDivs = document.querySelectorAll('.invalid-feedback');
-        errorDivs.forEach(errorDiv => errorDiv.remove());
-
-        if (errors) {
-            Object.keys(errors).forEach(error => {
-                const element = document.querySelector(`[name="${error}"]`);
-
-                if(element){
-                    element.classList.add('is-invalid');
-                
-                    const errorDiv = document.createElement('div');
-                    errorDiv.classList.add('invalid-feedback');
-                    errorDiv.innerHTML = errors[error];
-                    element.insertAdjacentElement('afterend', errorDiv);
-                }
-                
-            });
-        }
-    }
-</script>
 
 <?php $content = ob_get_clean(); ?>
 <?php include __DIR__ . '/../layout/layout.php'; ?>
