@@ -1,3 +1,6 @@
+* {
+    font-family: 'Montserrat', sans-serif;;
+}
 body {
     display: flex;
     height: 100vh;
