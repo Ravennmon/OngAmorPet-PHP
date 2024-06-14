@@ -10,7 +10,6 @@
             ajudar a causa de resgate e cuidado de animais, especializados em amar seus pets, criamos a plataforma
             para o registro de ongs e tutores, para que o match ocorra da melhor forma possível.</p>
         <a class="botao" href="https://wa.me/55041996888888" target="_blank">Agende uma visita</a>
-        <a class="botao" href="" target="_blank">Cadastre-se</a>
     </div>
 
     <div>
