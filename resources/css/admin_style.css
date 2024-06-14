@@ -14,7 +14,7 @@ body {
 }
 
 .sidebar a {
-    color: black;
+    color: #8C52FF;
     text-decoration: none;
 }
 
@@ -30,7 +30,7 @@ body {
 }
 
 .sidebar a:hover{
-    color: #8C52FF;
+    color: #30008f;
     text-decoration: none;
 
 }

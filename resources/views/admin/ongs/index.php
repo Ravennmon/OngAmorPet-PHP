@@ -35,9 +35,8 @@
                         <td><?= $ong['phone'] ?></td>
                         <td><?= fullAddress($ong) ?></td>
                         <td>
-                            
                             <a href="/admin/ongs/edit/<?= $ong['id'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                            <button onclick="destroy('ongs/<?= $ong['id'] ?>')" class="btn btn-danger">Excluir</button>
+                            <button onclick="destroy('ongs/<?= $ong['id'] ?>')" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
