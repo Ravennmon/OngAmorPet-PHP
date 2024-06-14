@@ -4,9 +4,6 @@ namespace App\Model;
 
 class Ong
 {
-    private $created_at;
-    private $updated_at;
-
     public function __construct(
         private string $name,
         private string $email,
@@ -19,7 +16,9 @@ class Ong
         private string $state,
         private string $number,
         private string $complement,
-        private ?int $id = null
+        private ?int $id = null,
+        private $created_at = null,
+        private $updated_at = null
     ) {
         $this->name = $name;
         $this->email = $email;

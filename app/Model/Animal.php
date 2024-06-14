@@ -4,9 +4,7 @@ namespace App\Model;
 
 class Animal
 {
-    private int $id;
-    private string $created_at;
-    private string $updated_at;
+
 
     public function __construct(
         private string $name,
@@ -16,6 +14,10 @@ class Animal
         private string $size,
         private string $sex,
         private int $ong_id,
+        private ?int $tutor_id = null,
+        private ?int $id = null,
+        private $created_at = null,
+        private $updated_at = null
     ) {
         $this->name = $name;
         $this->specie = $specie;

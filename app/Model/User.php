@@ -4,18 +4,13 @@ namespace App\Model;
 
 class User
 {
-    private int $id;
-    private string $name;
-    private string $email;
-    private string $password;
-    private string $remember_token;
-    private string $created_at;
-    private string $updated_at;
-
     public function __construct(
-        string $name,
-        string $email,
-        string $password,
+        private string $name,
+        private string $email,
+        private string $password,
+        private ?int $id = null,
+        private $created_at = null,
+        private $updated_at = null
     ) {
         $this->name = $name;
         $this->email = $email;
@@ -24,73 +19,13 @@ class User
         $this->updated_at = date('Y-m-d H:i:s');
     }
 
-    public function getId(): int
+    public function __get($attribute)
     {
-        return $this->id;
+        return $this->$attribute;
     }
 
-    public function setId(int $id): void
+    public function __set($attribute, $value)
     {
-        $this->id = $id;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): void
-    {
-        $this->name = $name;
-    }
-
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): void
-    {
-        $this->email = $email;
-    }
-
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): void
-    {
-        $this->password = $password;
-    }
-
-    public function getRememberToken(): string
-    {
-        return $this->remember_token;
-    }
-
-    public function setRememberToken(string $remember_token): void
-    {
-        $this->remember_token = $remember_token;
-    }
-
-    public function getCreatedAt(): string
-    {
-        return $this->created_at;
-    }
-
-    public function setCreatedAt(string $created_at): void
-    {
-        $this->created_at = $created_at;
-    }
-
-    public function getUpdatedAt(): string
-    {
-        return $this->updated_at;
-    }
-
-    public function setUpdatedAt(string $updated_at): void
-    {
-        $this->updated_at = $updated_at;
+        $this->$attribute = $value;
     }
 }
