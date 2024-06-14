@@ -26,7 +26,7 @@
             <tbody>
                 <?php if (empty($animals)) : ?>
                     <tr>
-                        <td colspan="6" class="text-center">Nenhum animal cadastrado</td>
+                        <td colspan="10" class="text-center">Nenhum animal cadastrado</td>
                     </tr>
                 <?php endif; ?>
                 <?php foreach ($animals as $animal) : ?>
