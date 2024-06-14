@@ -21,7 +21,6 @@ function logout()
 {
     session_destroy();
     setcookie('remember_token', '', time() - 3600, "/");
-    redirect('/login');
 }
 
 if (isRemembered() && !isLoggedIn()) {

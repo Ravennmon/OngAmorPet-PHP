@@ -3,10 +3,8 @@
 namespace App\Controller;
 
 use App\Core\View;
-use App\Model\User;
 use App\Controller\Controller;
 use App\Core\Response;
-use App\Dao\UserDao;
 use App\Validations\LoginValidation;
 
 class LoginController extends Controller
@@ -26,8 +24,8 @@ class LoginController extends Controller
 
         try {
             login($this->request);
-            return Response::success(true);
 
+            return Response::success(true);
         } catch (\Exception $e) {
             return Response::error(['error' => $e->getMessage()]);
         }
@@ -38,6 +36,7 @@ class LoginController extends Controller
     {
         try {
             logout();
+            redirect('/login');
         } catch (\Exception $e){
             return Response::error(['error' => $e->getMessage()]);
         }
