@@ -8,17 +8,17 @@ class Tutor
     private $updated_at;
 
     public function __construct(
-        string $name,
-        string $email,
-        string $cpf,
-        string $phone,
-        string $zipcode,
-        string $address,
-        string $city,
-        string $neighborhood,
-        string $state,
-        string $number,
-        string $complement
+        private string $name,
+        private string $email,
+        private string $cpf,
+        private string $phone,
+        private string $zipcode,
+        private string $address,
+        private string $city,
+        private string $neighborhood,
+        private string $state,
+        private string $number,
+        private string $complement
     ) {
         $this->name = $name;
         $this->email = $email;

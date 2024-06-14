@@ -9,6 +9,7 @@ use App\Core\Response;
 use App\Dao\BaseDao;
 use App\Dao\UserDao;
 use App\Validations\UserValidation;
+use Exception;
 
 class UserController extends Controller
 {
@@ -62,10 +63,16 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        $userDao = new UserDao();
+        try {
+            $userDao = new UserDao();
 
-        $userDao->delete($id);
+            $userDao->delete($id);
 
-        return Response::success('User deleted successfully');
+            Response::success(true);
+        
+        } catch(Exception $e){
+            Response::success($e->getMessage());
+        }
+        
     }
 }

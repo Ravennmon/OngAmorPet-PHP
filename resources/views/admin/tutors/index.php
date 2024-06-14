@@ -37,8 +37,8 @@
                         <td><?= $tutor['phone'] ?></td>
                         <td><?= $tutor['address'] ?></td>
                         <td>
-                            <a href="/admin/tutors/edit/<?= $tutor['id'] ?>" class="btn btn-warning">Editar</a>
-                            <button onclick="deleteTutor(<?= $tutor['id'] ?>)" class="btn btn-danger">Excluir</button>
+                            <a href="/admin/tutors/edit/<?= $tutor['id'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                            <button onclick="deleteTutor(<?= $tutor['id'] ?>)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>

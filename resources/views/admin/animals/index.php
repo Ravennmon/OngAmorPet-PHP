@@ -41,8 +41,8 @@
                         <td><?= getTutor($animal['tutor_id']) ?></td>
                         <td><?= isAdopted($animal['tutor_id']) ?></td>
                         <td>
-                            <a href="/admin/animals/edit/<?= $animal['id'] ?>" class="btn btn-warning">Editar</a>
-                            <button onclick="deleteAnimal(<?= $animal['id'] ?>)" class="btn btn-danger">Remover</button>
+                            <a href="/admin/animals/edit/<?= $animal['id'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                            <button onclick="deleteAnimal(<?= $animal['id'] ?>)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>

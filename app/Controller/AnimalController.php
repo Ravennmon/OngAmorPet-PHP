@@ -11,6 +11,7 @@ use App\Dao\OngDao;
 use App\Dao\TutorDao;
 use App\Model\Tutor;
 use App\Validations\AnimalValidation;
+use Exception;
 
 class AnimalController extends Controller
 {
@@ -132,10 +133,15 @@ class AnimalController extends Controller
 
     public function destroy($id)
     {
-        $animalDao = new AnimalDao();
+        try {
+            $animalDao = new AnimalDao();
 
-        $animalDao->delete($id);
+            $animalDao->delete($id);
 
-        redirect('/animals');
+            Response::success(true);
+        
+        } catch(Exception $e){
+            Response::success($e->getMessage());
+        }
     }
 }

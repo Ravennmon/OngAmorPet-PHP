@@ -8,6 +8,7 @@ use App\Controller\Controller;
 use App\Core\Response;
 use App\Dao\OngDao;
 use App\Validations\OngValidation;
+use Exception;
 
 class OngController extends Controller
 {
@@ -124,10 +125,16 @@ class OngController extends Controller
 
     public function destroy($id)
     {
-        $ongDao = new OngDao();
+        try {
+            $ongDao = new OngDao();
 
-        $ongDao->delete($id);
+            $ongDao->delete($id);
 
-        redirect('/ongs');
+            Response::success(true);
+        
+        } catch(Exception $e){
+            Response::success($e->getMessage());
+        }
+        
     }
 }

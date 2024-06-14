@@ -35,8 +35,9 @@
                         <td><?= $ong['phone'] ?></td>
                         <td><?= fullAddress($ong) ?></td>
                         <td>
-                            <a href="/admin/ongs/edit/<?= $ong['id'] ?>" class="btn btn-warning">Editar</a>
-                            <button onclick="deleteTutor(<?= $ong['id'] ?>)" class="btn btn-danger">Remover</button>
+                            
+                            <a href="/admin/ongs/edit/<?= $ong['id'] ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                            <button onclick="deleteTutor(<?= $ong['id'] ?>)" class="btn btn-danger">Excluir</button>
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -8,6 +8,7 @@ use App\Controller\Controller;
 use App\Core\Response;
 use App\Dao\TutorDao;
 use App\Validations\TutorValidation;
+use Exception;
 
 class TutorController extends Controller
 {
@@ -128,10 +129,15 @@ class TutorController extends Controller
 
     public function destroy($id)
     {
-        $tutorDao = new TutorDao();
+        try {
+            $tutorDao = new TutorDao();
 
-        $tutorDao->delete($id);
+            $tutorDao->delete($id);
 
-        redirect('/tutors');
+            Response::success(true);
+        
+        } catch(Exception $e){
+            Response::success($e->getMessage());
+        }
     }
 }
