@@ -1,7 +1,7 @@
 <?php
 
 use App\Controller\AnimalController;
-use App\Controller\DashboardController;
+use App\Controller\Controller;
 use App\Controller\LandingPageController;
 use App\Controller\LoginController;
 use App\Controller\OngController;
@@ -52,6 +52,6 @@ Route::delete('/admin/animals/{id}', [AnimalController::class, 'destroy']);
 
 Route::get('/registered', [RegisterController::class, 'index']);
 
-Route::get('/404', [DashboardController::class, 'notFound']);
+Route::get('/404', [Controller::class, 'notFound']);
 
 return Route::getRoutes();

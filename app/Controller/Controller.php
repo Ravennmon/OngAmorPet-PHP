@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Core\Request;
+use App\Core\View;
 
 class Controller
 {
@@ -11,5 +12,10 @@ class Controller
     public function __construct()
     {
         $this->request = Request::getInstance();
+    }
+
+    public function notFound()
+    {
+        View::render('404', ['title' => 'Página não encontrada']);
     }
 }

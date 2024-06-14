@@ -33,19 +33,4 @@ class Request
     {
         return isset($this->data[$name]) ? $this->data[$name] : null;
     }
-
-    public function all()
-    {
-        return $this->data;
-    }
-
-    public function input($name, $default = null)
-    {
-        return isset($this->data[$name]) ? $this->data[$name] : $default;
-    }
-
-    public function has($name)
-    {
-        return isset($this->data[$name]);
-    }
 }

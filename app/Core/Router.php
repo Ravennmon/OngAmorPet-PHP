@@ -13,8 +13,6 @@ class Router
 
     public function dispatch($uri, $method)
     {
-        $uri = $this->removeRootFolderUri($uri);
-
         if (str_starts_with($uri, '/resources')) {
             $this->serveStaticFile($uri);
             return;
@@ -84,11 +82,5 @@ class Router
     protected function notFound()
     {
         redirect('/404');
-    }
-
-    // TODO
-    protected function removeRootFolderUri($uri)
-    {
-        return str_replace('/007', '', $uri);
     }
 }
