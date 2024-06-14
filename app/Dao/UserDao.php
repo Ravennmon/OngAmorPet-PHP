@@ -12,11 +12,11 @@ class UserDao extends BaseDao
     public function store(User $user)
     {
         return $this->create([
-            'name' => $user->getName(),
-            'email' => $user->getEmail(),
-            'password' => password_hash($user->getPassword(), PASSWORD_BCRYPT),
-            'created_at' => $user->getCreatedAt(),
-            'updated_at' => $user->getUpdatedAt()
+            'name' => $user->name,
+            'email' => $user->email,
+            'password' => password_hash($user->password, PASSWORD_BCRYPT),
+            'created_at' => $user->created_at,
+            'updated_at' => $user->updated_at
         ]);
     }
 
