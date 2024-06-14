@@ -65,34 +65,43 @@ class TutorController extends Controller
             return Response::error($validation);
         }
 
-        $tutor = new Tutor(
-            $this->request->name,
-            $this->request->email,
-            $this->request->cpf,
-            $this->request->phone,
-            $this->request->zipcode,
-            $this->request->address,
-            $this->request->city,
-            $this->request->neighborhood,
-            $this->request->state,
-            $this->request->number,
-            $this->request->complement,
-        );
+        try {
+            $tutor = new Tutor(
+                $this->request->name,
+                $this->request->email,
+                $this->request->cpf,
+                $this->request->phone,
+                $this->request->zipcode,
+                $this->request->address,
+                $this->request->city,
+                $this->request->neighborhood,
+                $this->request->state,
+                $this->request->number,
+                $this->request->complement,
+            );
+            
+            $baseDao = new TutorDao();
 
-        $baseDao = new TutorDao();
-
-        $created = $baseDao->store($tutor);
-
-        return Response::success($created);
+            $created = $baseDao->store($tutor);
+    
+            return Response::success($created);
+        } catch(Exception $e){
+            return Response::error($e->getMessage());
+        }
     }
 
     public function show($id)
     {
-        $tutorDao = new TutorDao();
+        try {
+            $tutorDao = new TutorDao();
 
-        $tutor = $tutorDao->find($id);
+            $tutor = $tutorDao->find($id);
+    
+            Response::success($tutor);
+        } catch(Exception $e){
+            return Response::error($e->getMessage());
+        }
 
-        Response::success($tutor);
     }
 
     public function update($id)
@@ -137,7 +146,7 @@ class TutorController extends Controller
             Response::success(true);
         
         } catch(Exception $e){
-            Response::success($e->getMessage());
+            Response::error($e->getMessage());
         }
     }
 }

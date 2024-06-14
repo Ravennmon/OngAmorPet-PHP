@@ -65,34 +65,42 @@ class OngController extends Controller
             return Response::error($validation);
         }
 
-        $ong = new Ong(
-            $this->request->name,
-            $this->request->email,
-            $this->request->cnpj,
-            $this->request->phone,
-            $this->request->zipcode,
-            $this->request->address,
-            $this->request->city,
-            $this->request->neighborhood,
-            $this->request->state,
-            $this->request->number,
-            $this->request->complement,
-        );
-
-        $baseDao = new OngDao();
-
-        $created = $baseDao->store($ong);
-
-        return Response::success($created);
+        try {
+            $ong = new Ong(
+                $this->request->name,
+                $this->request->email,
+                $this->request->cnpj,
+                $this->request->phone,
+                $this->request->zipcode,
+                $this->request->address,
+                $this->request->city,
+                $this->request->neighborhood,
+                $this->request->state,
+                $this->request->number,
+                $this->request->complement,
+            );
+    
+            $baseDao = new OngDao();
+    
+            $created = $baseDao->store($ong);
+    
+            return Response::success($created);
+        } catch(Exception $e){
+            return Response::error($e->getMessage());
+        }
     }
 
     public function show($id)
     {
-        $ongDao = new OngDao();
+        try {
+            $ongDao = new OngDao();
 
-        $ong = $ongDao->find($id);
-
-        Response::success($ong);
+            $ong = $ongDao->find($id);
+    
+            Response::success($ong);
+        } catch(Exception $e){
+            return Response::error($e->getMessage());
+        }
     }
 
     public function update($id)
@@ -102,25 +110,30 @@ class OngController extends Controller
         if ($validation !== true) {
             return Response::error($validation);
         }
+
+        try {
+            $ongDao = new OngDao();
+
+            $ongDao->update([
+                'name' => $this->request->name,
+                'email' => $this->request->email,
+                'cnpj' => $this->request->cnpj,
+                'phone' => $this->request->phone,
+                'zipcode' => $this->request->zipcode,
+                'address' => $this->request->address,
+                'city' => $this->request->city,
+                'neighborhood' => $this->request->neighborhood,
+                'state' => $this->request->state,
+                'number' => $this->request->number,
+                'complement' => $this->request->complement,
+                'updated_at' => date('Y-m-d H:i:s')
+            ], $id);
+    
+            return Response::success(true);
+        } catch(Exception $e){
+            return Response::error($e->getMessage());
+        }
         
-        $ongDao = new OngDao();
-
-        $ongDao->update([
-            'name' => $this->request->name,
-            'email' => $this->request->email,
-            'cnpj' => $this->request->cnpj,
-            'phone' => $this->request->phone,
-            'zipcode' => $this->request->zipcode,
-            'address' => $this->request->address,
-            'city' => $this->request->city,
-            'neighborhood' => $this->request->neighborhood,
-            'state' => $this->request->state,
-            'number' => $this->request->number,
-            'complement' => $this->request->complement,
-            'updated_at' => date('Y-m-d H:i:s')
-        ], $id);
-
-        return Response::success(true);
     }
 
     public function destroy($id)

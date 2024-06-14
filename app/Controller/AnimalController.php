@@ -79,31 +79,40 @@ class AnimalController extends Controller
             return Response::error($validation);
         }
 
-        $animal = new Animal(
-            $this->request->name,
-            $this->request->specie,
-            $this->request->breed,
-            $this->request->birth_date,
-            $this->request->size,
-            $this->request->sex,
-            $this->request->ong_id
-        );
+        try {
 
-        $baseDao = new AnimalDao();
-
-        $created = $baseDao->store($animal);
-
-        
-        return Response::success($created);
+            $animal = new Animal(
+                $this->request->name,
+                $this->request->specie,
+                $this->request->breed,
+                $this->request->birth_date,
+                $this->request->size,
+                $this->request->sex,
+                $this->request->ong_id
+            );
+    
+            $baseDao = new AnimalDao();
+    
+            $created = $baseDao->store($animal);
+    
+            
+            return Response::success($created);
+        } catch(Exception $e){
+            Response::error($e->getMessage());
+        }
     }
 
     public function show($id)
     {
-        $animalDao = new AnimalDao();
+        try {
+            $animalDao = new AnimalDao();
 
-        $animal = $animalDao->find($id);
-
-        Response::success($animal);
+            $animal = $animalDao->find($id);
+    
+            Response::success($animal);
+        } catch(Exception $e){
+            Response::error($e->getMessage());
+        }
     }
 
     public function update($id)
@@ -114,21 +123,26 @@ class AnimalController extends Controller
             return Response::error($validation);
         }
 
-        $animalDao = new AnimalDao();
+        try {
+            $animalDao = new AnimalDao();
 
-        $animalDao->update([
-            'name' => $this->request->name,
-            'specie' => $this->request->specie,
-            'breed' => $this->request->breed,
-            'birth_date' => $this->request->birth_date,
-            'size' => $this->request->size,
-            'sex' => $this->request->sex,
-            'tutor_id' => $this->request->tutor_id,
-            'ong_id' => $this->request->ong_id,
-            'updated_at' => date('Y-m-d H:i:s')
-        ], $id);
+            $animalDao->update([
+                'name' => $this->request->name,
+                'specie' => $this->request->specie,
+                'breed' => $this->request->breed,
+                'birth_date' => $this->request->birth_date,
+                'size' => $this->request->size,
+                'sex' => $this->request->sex,
+                'tutor_id' => $this->request->tutor_id,
+                'ong_id' => $this->request->ong_id,
+                'updated_at' => date('Y-m-d H:i:s')
+            ], $id);
+    
+            return Response::success(true);
+        } catch(Exception $e){
+            Response::error($e->getMessage());
+        }
 
-        return Response::success(true);
     }
 
     public function destroy($id)
@@ -141,7 +155,7 @@ class AnimalController extends Controller
             Response::success(true);
         
         } catch(Exception $e){
-            Response::success($e->getMessage());
+            Response::error($e->getMessage());
         }
     }
 }

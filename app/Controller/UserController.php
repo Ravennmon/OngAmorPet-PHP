@@ -26,39 +26,52 @@ class UserController extends Controller
             return Response::error($validation);
         }
 
-        $user = new User(
-            $this->request->name,
-            $this->request->email,
-            $this->request->password,
-        );
 
-        $baseDao = new UserDao();
-
-        $stored = $baseDao->store($user);
-
-        return Response::success($stored);
+        try {
+            $user = new User(
+                $this->request->name,
+                $this->request->email,
+                $this->request->password,
+            );
+    
+            $baseDao = new UserDao();
+    
+            $stored = $baseDao->store($user);
+    
+            return Response::success($stored);
+        } catch(Exception $e){
+            return Response::error($e->getMessage());
+        }
     }
 
     public function show($id)
     {
-        $userDao = new UserDao();
+        try {
+            $userDao = new UserDao();
 
-        $user = $userDao->find($id);
-
-        Response::success($user);
+            $user = $userDao->find($id);
+    
+            Response::success($user);
+        } catch(Exception $e){
+            return Response::error($e->getMessage());
+        }
     }
 
     public function update($id)
     {
-        $userDao = new UserDao();
+        try {
+            $userDao = new UserDao();
 
-        $sql = $userDao->update([
-            'name' => $this->request->name,
-            'email' => $this->request->email,
-            'updated_at' => date('Y-m-d H:i:s')
-        ], $id);
-
-        return Response::success($sql);
+            $userDao->update([
+                'name' => $this->request->name,
+                'email' => $this->request->email,
+                'updated_at' => date('Y-m-d H:i:s')
+            ], $id);
+    
+            return Response::success(true);
+        } catch(Exception $e){
+            return Response::error($e->getMessage());
+        }
     }
 
     public function destroy($id)
@@ -71,7 +84,7 @@ class UserController extends Controller
             Response::success(true);
         
         } catch(Exception $e){
-            Response::success($e->getMessage());
+            Response::error($e->getMessage());
         }
         
     }
