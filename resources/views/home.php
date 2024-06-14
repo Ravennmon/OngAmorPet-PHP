@@ -5,11 +5,12 @@
 
     <img src="resources/img/alimentos_pet.svg">
     <div>
-        <h1>Garanta uma casa ou cuidados até um lar doce, para os pequeninos.</h1>
-        <p>A AmorPet é uma ONG de resgate e cuidado de animais, especialzada na reabilitação dos pequeninos e na
-            procura de um novo lar, com amor, carinho e cuidado.</p>
+        <h1>Garanta uma casa ou cuidados até um lar doce chegar, para os pequeninos.</h1>
+        <p>A AmorPet é uma plataforma criada por desenvolvedores inesperientes, mas que querem de alguma forma
+            ajudar a causa de resgate e cuidado de animais, especializados em amar seus pets, criamos a plataforma
+            para o registro de ongs e tutores, para que o match ocorra da melhor forma possível.</p>
         <a class="botao" href="https://wa.me/55041996888888" target="_blank">Agende uma visita</a>
-        <a class="botao-transparente" href="#ajuda">Nos Ajude!</a>
+        <a class="botao" href="" target="_blank">Cadastre-se</a>
     </div>
 
     <div>
@@ -49,10 +50,10 @@
 <section class="fade fade-left content-center">
     <img src="resources/img/cat.svg" alt="" width="" height="" loading="lazy">
     <div>
-        <h2>Ajuda, ou quer adotar? Entre em contato.</h2>
+        <h2>Quer ajudar, adotar ou ser lar temporario? Entre em contato.</h2>
         <p>
-            Caso você tenha alguma dúvida, sobre a ONG, como trabalhamos, como adotar e como pode nos ajudar
-            com nossos gastos de cuidados, pode entrar em contato, pelo nosso whatsapp
+            Caso você tenha alguma dúvida, sobre as ONGs, como trabalham, como adotar e como pode ajudar
+            com com os gastos dfas ONGs parceiras, pode entrar em contato, pelo nosso whatsapp
             <a href="https://wa.me/5504196888888" target="_blank">AQUI</a>. E também temos instagram
             <a href="http://instagram.com/crazycatgang" target="_blank"> CrazyCatGang</a>
         </p>

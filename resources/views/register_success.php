@@ -6,8 +6,8 @@
     <div>
         <h2>Usuario cadastrado com sucesso</h2>
         <p>
-            Caso você tenha alguma dúvida, sobre a ONG, como trabalhamos, como adotar e como pode nos ajudar
-            com nossos gastos de cuidados, pode entrar em contato, pelo nosso whatsapp
+        Caso você tenha alguma dúvida, sobre as ONGs, como trabalham, como adotar e como pode ajudar
+        com com os gastos dfas ONGs parceiras, pode entrar em contato, pelo nosso whatsapp
             <a href="https://wa.me/5504196888888" target="_blank">AQUI</a>. E também temos instagram
             <a href="http://instagram.com/crazycatgang" target="_blank"> CrazyCatGang</a>
         </p>
