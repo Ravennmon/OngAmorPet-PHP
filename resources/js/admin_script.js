@@ -73,8 +73,15 @@ const destroy = (endpoint) => {
     fetch(`/admin/${endpoint}`, {
         method: 'DELETE'
     })
-    .then(() => {
-        window.location.reload();
+    .then(response => response.json())
+    .then((data) => {
+        if(data === true){
+            window.location.reload();
+        } else {
+            const errorAlert = `<div class="alert alert-danger" role="alert">${data}</div>`
+            document.querySelector('#container').insertAdjacentHTML('afterbegin', errorAlert);
+
+        }
     })
     .catch(err => console.error(err));
 

@@ -146,7 +146,7 @@ class OngController extends Controller
             Response::success(true);
         
         } catch(Exception $e){
-            Response::success($e->getMessage());
+            Response::error($e->getMessage());
         }
         
     }
