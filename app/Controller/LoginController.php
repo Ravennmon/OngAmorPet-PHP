@@ -24,31 +24,22 @@ class LoginController extends Controller
             return Response::error($validation);
         }
 
-        $userDao = new UserDao();
-        $user = $userDao->where(['email' => $this->request->email])->first();
+        try {
+            login($this->request);
+            return Response::success(true);
 
+        } catch (\Exception $e) {
+            return Response::error(['error' => $e->getMessage()]);
+        }
 
-        $_SESSION['user'] = $user;
-
-        if ($this->request->remember) {
-            $token = bin2hex(random_bytes(16));
-            setcookie('remember_me', $token, time() + (86400 * 30), "/");
-            
-            setcookie('user_id', $user['id'], time() + (86400 * 30), "/");
-            setcookie('name', $user['name'], time() + (86400 * 30), "/");
-            
-            $userDao->update(['remember_token' => $token], $user['id']);
-            }
-
-        return Response::success(true);
     }
 
     public function destroy()
     {
-        session_destroy();
-        setcookie('remember_me', '', time() - 3600, "/");
-        setcookie('user_id', '', time() - 3600, "/");
-        setcookie('name', '', time() - 3600, "/");
-        redirect('/login');
+        try {
+            logout();
+        } catch (\Exception $e){
+            return Response::error(['error' => $e->getMessage()]);
+        }
     }
 }
